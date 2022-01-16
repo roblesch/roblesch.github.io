@@ -1,6 +1,7 @@
 ---
 layout: post
-title:  "An E-Learning Introduction to Computer Graphics - Dr. Ravi Ramamoorthi's CSE167x Computer Graphics Course"
+title:  "An E-Learning Introduction to Computer Graphics - CSE167x with Dr. Ravi Ramamoorthi"
 date:   2020-10-25
+author: Christian Robles
 published: false
 ---

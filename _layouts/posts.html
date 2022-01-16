@@ -2,22 +2,24 @@
 layout: default
 ---
 
-<div class="home">
+<div class="posts">
   {%- if site.posts.size > 0 -%}
-    <!-- <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2> -->
-    <ul class="post-list">
-      {%- for post in site.posts -%}
+    {% for post in site.posts %}
+      {% assign currentdate = post.date | date: "%Y" %}
+      {% if currentdate != date %}
+        {% unless forloop.first %}</ul>{% endunless %}
+        <h2 id="{{post.date | date: "%Y"}}">{{ currentdate }}</h1>
+        <ul class="posts-list">
+        {% assign date = currentdate %}
+      {% endif %}
       <li>
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
+        {%- assign date_format = site.minima.date_format | default: "%b %-d" -%}
+        {{ post.date | date: date_format }}
+        <a class="posts-link" href="{{ post.url | relative_url }}">
+          {{ post.title | escape }}
+        </a>
       </li>
-      {%- endfor -%}
-    </ul>
+      {% if forloop.last %}</ul>{% endif %}
+    {% endfor %}
   {%- endif -%}
-
 </div>
