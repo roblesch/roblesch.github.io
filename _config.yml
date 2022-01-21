@@ -8,5 +8,8 @@ baseurl:
 github_username: roblesch
 linkedin_username: roblesch
 theme: minima
+markdown: kramdown
+kramdown:
+  math_engine: katex
 plugins:
   - jekyll-feed

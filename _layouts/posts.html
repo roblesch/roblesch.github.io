@@ -4,22 +4,16 @@ layout: default
 
 <div class="posts">
   {%- if site.posts.size > 0 -%}
+  <ul class="posts-list">
     {% for post in site.posts %}
-      {% assign currentdate = post.date | date: "%Y" %}
-      {% if currentdate != date %}
-        {% unless forloop.first %}</ul>{% endunless %}
-        <h2 id="{{post.date | date: "%Y"}}">{{ currentdate }}</h1>
-        <ul class="posts-list">
-        {% assign date = currentdate %}
-      {% endif %}
       <li>
-        {%- assign date_format = site.minima.date_format | default: "%b %-d" -%}
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
         {{ post.date | date: date_format }}
         <a class="posts-link" href="{{ post.url | relative_url }}">
           {{ post.title | escape }}
         </a>
       </li>
-      {% if forloop.last %}</ul>{% endif %}
     {% endfor %}
+  </ul>
   {%- endif -%}
 </div>

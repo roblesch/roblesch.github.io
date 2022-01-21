@@ -67,7 +67,7 @@ Out of curiosity I ran style transfer with the original texture as the style ima
 
 Here's what the transferred textures look like mapped back onto the models -
 
-<img src="/assets/images/style-transfer/faces-rotate.gif" alt="faces" width="500">
+<video src="/assets/images/style-transfer/faces-rotate.mp4" controls="controls" width="505">
+</video>
 
 Not *quite* as compelling as Weirdcore's work.
-
