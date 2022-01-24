@@ -12,7 +12,7 @@ I am a graduate student based in Los Angeles studying at the [University of Sout
 
 #### [Microsoft](https://devblogs.microsoft.com/cse/) Cambridge, MA July 2017 - July 2021
 
-**Software Engineer II**  Deployed infrastructure-as-code, CI/CD pipelines and build systems targeting the Azure Cloud in partnership with Microsoft's top enterprise partners. 
+Commercial Software Engineering **Software Engineer II**  Deployed infrastructure-as-code, CI/CD pipelines and build systems targeting the Azure Cloud with Microsoft's enterprise partners. 
 
 #### [Goldman Sachs](https://www.goldmansachs.com/careers/divisions/engineering/index.html) New York, NY Summer 2016
 
