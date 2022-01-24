@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Hello"
+title:  "Welcome to My Blog"
 date: 2020-01-01
 author: Christian Robles
 published: true
