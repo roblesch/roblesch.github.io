@@ -7,7 +7,7 @@ tags: graphics
 published: true 
 ---
 
-Since mid December I have been reading Eric Veach's 1997 Ph.D. Thesis [*Robust Monte Carlo Methods for Light Transport Simulation*](http://graphics.stanford.edu/papers/veach_thesis/). I've recently been working on extending Peter Shirley's implementation of a Monte Carlo path tracer from his book [*Ray Tracing: The Rest Of Your Life*](https://raytracing.github.io/books/RayTracingTheRestOfYourLife.html) with the Multiple Importance Sampling techniques proposed by Veach as a side project. After about 7 weeks of staring at formulas and banging my head into things, I think I've got something to share (a whole week ahead of schedule too!)
+Since mid December, I've been reading Eric Veach's 1997 Ph.D. Thesis [*Robust Monte Carlo Methods for Light Transport Simulation*](http://graphics.stanford.edu/papers/veach_thesis/). I've recently been working on extending Peter Shirley's implementation of a Monte Carlo path tracer from his book [*Ray Tracing: The Rest Of Your Life*](https://raytracing.github.io/books/RayTracingTheRestOfYourLife.html) with the Multiple Importance Sampling techniques proposed by Veach as a side project. After about 7 weeks of staring at formulas and banging my head into things, I think I've got something to share (a whole week ahead of schedule too!)
 
 In this post I'll share the route I took through Veach's thesis and how I implemented Multiple Importance Sampling with a Balance Heuristic in Peter Shirley's path tracer. Shortest path is a bit of a stretch. The source for this project is [available here](https://github.com/roblesch/multiple-importance-sampling).
 
