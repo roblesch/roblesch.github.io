@@ -11,7 +11,7 @@ Since mid December, I've been reading Eric Veach's 1997 Ph.D. Thesis [*Robust Mo
 
 In this post I'll share the route I took through Veach's thesis and how I implemented Multiple Importance Sampling with a Balance Heuristic in Peter Shirley's path tracer. Shortest path is a bit of a stretch. The source for this project is [available here](https://github.com/roblesch/multiple-importance-sampling).
 
-Many personal thanks to Mike Day for recommending the readings that gave this project its legs, Peter Shirley for entertaining too many questions, and to Professor Neumann for some generous encouragement.
+Many personal thanks to Mike Day for recommending the readings that gave this project its legs, Peter Shirley for entertaining too many questions, and to Professor Neumann for some generous encouragement. Extra thanks to Adam Celarek from TU Wien for taking the time for a detailed review of my implementation - Adam pointed out that there are issues with the light sampling, I've added his comments and some extra links in the Issues section of this post.
 
 - [Overview](#overview)
 - [Light Transport](#light-transport)
@@ -23,6 +23,7 @@ Many personal thanks to Mike Day for recommending the readings that gave this pr
   - [Implementing MIS](#implementing-mis)
   - [Notes](#notes)
 - [Sources](#sources)
+- [Issues](#issues)
 
 <br>
 
@@ -64,7 +65,7 @@ Here is nice a video that illustrates this idea -
 
 ### Advantages of Monte Carlo Methods
 
-This process for estimating $$\pi$$ is an example of [Monte Carlo Integration](https://en.wikipedia.org/wiki/Monte_Carlo_integration). Monte Carlo methods are helpful when integrals are difficult to calculate directly. We can use Monte Carlo methods to approximate the value of integrals with high dimensions or whose underlying functions are not known precisely. Monte Carlo methods are useful in solving the Light Transport problem since light transport can be formulated as an integral over transport paths (Veach 8), and the high dimensionality is poorly suited to numerical methods. 
+This process for estimating $$\pi$$ is an example of [Monte Carlo Integration](https://en.wikipedia.org/wiki/Monte_Carlo_integration). Monte Carlo methods are helpful when integrals are difficult to calculate directly. Monte Carlo methods can be used to approximate the value of integrals with high dimensions or whose underlying functions are not known precisely. Monte Carlo methods are useful in solving the Light Transport problem since light transport can be formulated as an integral over transport paths (Veach 8), and the high dimensionality is poorly suited to numerical methods. 
 
 Other mathematical advantages to Monte Carlo methods include convergence in $$O(N^{-1/2})$$ (*Veach 2.4.1*), generalization to domains that are not well-suited to analytical solutions (*Veach 2.4*) and application to integrands with singularities (*Veach 2.4*).
 
@@ -77,9 +78,9 @@ More information:
 
 ## Importance Sampling
 
-With Monte Carlo methods, the quality of our approximation scales with the number of samples we evaluate. Importance sampling allows us to converge to a good approximation by focusing sampling on the regions that provide the most information. In a nutshell, if we want to evaluate the integral of some function $$f$$, it may be the case that the probability of sampling $$f$$ in a region that provides little information is very high. Importance sampling allows us to focus our evaluation on the regions of $$f$$ which provide the most information by changing the distribution that we sample from, reducing the samples needed to converge on a good approximation.
+With Monte Carlo methods, the quality of the approximation scales with the number of samples evaluated. Importance sampling converges to a good approximation more quickly by focusing sampling on the regions that provide the most information. In a nutshell, if the goal is to evaluate the integral of some function $$f$$, it may be the case that the probability of sampling $$f$$ in a region that provides little information is very high. Importance sampling focuses the evaluation on the regions of $$f$$ which provide the most information by changing the distribution sampled from, reducing the samples needed to converge on a good approximation.
 
-In light transport our analogous sampling of regions that provide more information are more literal. Remember that our goal is to simulate the path of light throughout a scene, so ideally every path we sample should terminate at a light. Unfortunately, by purely random surface scattering this will rarely be the case. However, if a surface is in direct lighting, that is that its path to a light is unobstructed, then that light will likely provide the most information on the appearance of the surface, so we should trace paths toward the light. If we can't see a light, we could scatter according to the properties of the surface, since we may find a path to the light eventually. This is exactly what is meant when I reference "sampling the lights" or "sampling the BRDF" in later sections.
+In light transport the analogous sampling of regions that provide more information is more literal. The goal is to simulate the path of light throughout a scene, so ideally every path sampled should terminate at a light. Unfortunately, by purely random surface scattering this will rarely be the case. However, if a surface is in direct lighting, that is that its path to a light is unobstructed, then that light will likely provide the most information on the appearance of the surface, so paths should be traced toward the light. If the light isn't visible, rays could scatter according to the properties of the surface, since they may find a path to the light eventually. This is what I mean when I reference "sampling the lights" or "sampling the BRDF" in later sections.
 
 Here is a very good video on the subject of importance sampling. It's made for a Machine Learning audience, but the theory is the same -
 
@@ -102,9 +103,9 @@ Take a look at these three images, each generated with 16 samples per pixel -
 
 The image on the left was generated by sampling the BRDF only. We can see that sampling the BRDF is very noisy at few samples. It converges on an approximation of the color of a pixel very slowly, since the chance of finding our way to the light by random scattering is very low.
 
-The image in the middle was generated by sampling the lights only. It converges on an approximation of the color of a pixel very quickly, since we will always sample a path directly to the light. However, we can see that in locations where no path to the light exists - in the shadow of the boxes or on the ceiling - we are not able to gather any information at all.
+The image in the middle was generated by sampling the lights only. It converges on an approximation of the color of a pixel very quickly, since it will always sample a path directly to the light. However, we can see that in locations where no path to the light exists - in the shadow of the boxes or on the ceiling - it is not able to gather any information at all.
 
-The image on the right was generated using multiple importance sampling. In this technique we take the best of both worlds - in cases where a path to the light exists, we sample the light. Otherwise, we scatter according to the properties of the material. With multiple importance sampling, we use a weighted combination of multiple sampling techniques to produce a result. There are many ways to calculate weights (Veach 9.2), but here we use the balance heuristic -
+The image on the right was generated using multiple importance sampling. This technique takes the best of both worlds - in cases where a path to the light exists, it sample the light. Otherwise, rays are scattered according to the properties of the material. With multiple importance sampling, a weighted combination of multiple sampling techniques is used to produce a result. There are many ways to calculate weights (Veach 9.2), but here I've used the balance heuristic -
 
 $$
 w_s(x) = \frac{p_s(x)}{\sum_i p_i(x)}
@@ -206,7 +207,7 @@ Multiple Importance, Lights + Mixture PDF, Balance Heuristic, 16, 64, 256 sample
 
 ### Notes
 
-We can see that Multiple Importance Sampling allows us to utilize different sampling techniques where they are most effective. We gain the benefit of converging to a solution more quickly in areas where the light is visible by sampling the lights directly, and cover areas where the lights cannot be sampled by sampling the BRDF or the Mixture PDF. This technique could be further improved by using something like [adaptive sampling](https://web.cs.wpi.edu/~matt/courses/cs563/talks/antialiasing/adaptive.html) to determine the main contributor in a pixel area, and alter the samples per pixel to sample more densely in areas where the light is not visible, and sample more sparsely in areas where it is.
+We can see that Multiple Importance Sampling allows us to utilize different sampling techniques where they are most effective. Multiple Importance Sampling provides the benefit of converging to a solution more quickly in areas where the light is visible by sampling the lights directly, and cover areas where the lights cannot be sampled by sampling the BRDF or the Mixture PDF. This technique could be further improved by using something like [adaptive sampling](https://web.cs.wpi.edu/~matt/courses/cs563/talks/antialiasing/adaptive.html) to determine the main contributor in a pixel area, and alter the samples per pixel to sample more densely in areas where the light is not visible, and sample more sparsely in areas where it is.
 
 ## Sources
 
@@ -215,3 +216,21 @@ We can see that Multiple Importance Sampling allows us to utilize different samp
 [Matt Pharr, Wenzel Jakob, Greg Humphreys, _Physically Based Rendering_](https://www.pbrt.org/)
 
 [Eric Veach, _Robust Monte Carlo Methods for Light Transport Simulation_](http://graphics.stanford.edu/papers/veach_thesis/)
+
+## Issues
+
+*Updated Feb 9 2022*
+
+I reached out to [Adam Celarek](https://www.cg.tuwien.ac.at/staff/AdamCelarek), a PhD candidate at [TU Wien](https://www.tuwien.at/) after I came across his [lecture slides](https://www.cg.tuwien.ac.at/sites/default/files/course/4411/attachments/08_mis.pdf) on the topic of MIS. There is also a recording of his lecture, available here -
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2S6imDIiFTM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<br>
+
+Adam pointed out that this light sampling strategy (which is essentially direct lighting) is not unbiased - that is, given enough samples, it will never converge on a correct solution. This can be verified by comparing against sampling the BRDF or Peter's mixture pdf - no matter how many times the light is sampled, the result will never contain any information for the regions in shadow.
+
+Additionally, Peter's mixture pdf already demonstrates multiple importance sampling, using a *one-sample model* (Veach 9.2.4). What I've implemented is a *multi-sample model* (Veach 9.2.1), but using the mixture pdf as one of the sampling functions is questionable.
+
+>From what i see from the code on Ray Tracing - The Rest of Your Life, I believe it is already MIS with the balance heuristic. Compare with my slides, page 24, p_i, of the currently selected PDF cancels out, and you get f(x)/(p0(x)+p1(x)).*
+
+>Veach said: we have n sampling strategies, and we take n_i samples each. He was computing the weight w for each sampling strategy separately. If you do that, you have to send one ray cast per sampling strategy. What is done more often, is to select a sampling strategy with a uniform probability, then compute a single weight and use it (my slides, page 27, that is the balance heuristic). That being said, you seem to sample two strategies on every hit, which should be correct. The problem with this is, that the number of rays going through the scene doubles on each hitpoint (if not reduced by an aggressive RR, and I can imagine, that such an aggressive RR would introduce more noise).
