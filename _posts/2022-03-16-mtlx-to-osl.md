@@ -31,7 +31,7 @@ Using the viewer, we can show some sample materials. For this example, I'll take
 
 To generate OSL source code from a .mtlx file, we can use [MaterialX Shader Generation](https://github.com/AcademySoftwareFoundation/MaterialX/blob/main/documents/DeveloperGuide/ShaderGeneration.md). To my understanding, a *.mtlx document holds a nodegraph describing the properties of some material. The Shader Generator uses a language specific [generator context](https://github.com/AcademySoftwareFoundation/MaterialX/blob/main/source/MaterialXGenShader/GenContext.cpp) to translate a document nodegraph to shader source code. The resulting source code can then be written to a file to be consumed by other renderers.
 
-The source is available here - [https://github.com/roblesch/mtlx-to-osl](https://github.com/roblesch/mtlx-to-osl)
+I put together a small console wrapper for OSL shader generation. The source is available here - [https://github.com/roblesch/mtlx-to-osl](https://github.com/roblesch/mtlx-to-osl). This is just a small demonstrative app, so it has some smelly pieces like requiring absolute input paths and no optional configurations for shader generation. I may expand this down the line if there is any value in doing so.
 
 The code was put together from snippets in the MaterialX Viewer. It's more or less a pared down [`loadDocument()`](https://github.com/AcademySoftwareFoundation/MaterialX/blob/b58042eae7e2c866f0b9b36c2476f0f846ee0df8/source/MaterialXView/Viewer.cpp#L1153) - most of the difficulty came from figuring out which configuration I didn't need. 
 
