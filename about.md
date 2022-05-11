@@ -6,7 +6,7 @@ permalink: /about/
 
 ## Christian A. Robles
 
-I am a graduate student based in Los Angeles studying at the [University of Southern California](https://viterbischool.usc.edu/) pursuing a Master of Science in Computer Science with a specialization in [Multimedia and Creative Technologies](https://www.youtube.com/watch?v=DR71wKEFmGs). I'm excited about physically based rendering, procedural animation and digital audio synthesis. Previously [Software Engineering at Microsoft](https://devblogs.microsoft.com/cse/). Connect with me on [LinkedIn](https://www.linkedin.com/in/roblesch/) and [GitHub](https://github.com/roblesch/).
+I am a graduate student based in Los Angeles studying at the [University of Southern California](https://viterbischool.usc.edu/) pursuing a Master of Science in Computer Science with a specialization in [Multimedia and Creative Technologies](https://www.youtube.com/watch?v=DR71wKEFmGs). I'm excited about physically based rendering, procedural animation and digital audio synthesis. Previously [Software Engineering at Microsoft](https://devblogs.microsoft.com/cse/). Connect with me on [LinkedIn](https://www.linkedin.com/in/roblesch/) and [GitHub](https://github.com/roblesch/). View my [resume](/assets/robles_christian_resume.pdf).
 
 ### Industry
 
