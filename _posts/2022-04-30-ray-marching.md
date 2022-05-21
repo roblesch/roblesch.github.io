@@ -8,7 +8,7 @@ published: true
 
 <img src="/assets/images/ray-marching/teaser.png" alt="teaser"/>
 
-I recently worked on a report for Professor Neumann's course *3-D Graphics and Rendering* where we use Ray Marching techniques to generate various procedural materials and surfaces. Check out the report for an overview of Ray Marching techniques, interesting properties of implicit intersection tests, approximations of clouds, Constructive Solid Geometry and Fractals.
+It's finally done. As an arduous semester comes to a close, I'd like to share a report I recently worked on for Professor Neumann's *3-D Graphics and Rendering* where we used Ray Marching to generate various procedural materials and surfaces. Take a peek for an overview of Ray Marching techniques, interesting properties of implicit intersection tests, approximations of clouds, constructive solid geometry, and fractals.
 
 Report: [Procedural Rendering With Ray Marching](/assets/images/ray-marching/Procedural_Rendering_with_Ray_Marching.pdf)
 
