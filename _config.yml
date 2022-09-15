@@ -13,3 +13,4 @@ kramdown:
   math_engine: katex
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
