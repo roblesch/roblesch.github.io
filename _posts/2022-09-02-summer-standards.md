@@ -4,6 +4,7 @@ title:  "Summer of Standards"
 date:   2022-09-02
 author: Christian Robles
 image: "https://blog.roblesch.page/assets/images/summer22/preview.png"
+description: "This summer I had the opportunity to work with Autodesk’s Graphics Platform Team on an extension for the Academy Software Foundation’s MaterialX . Our goal was to support translation from Autodesk’s Standard Surface material model to the Khronos..."
 published: true
 ---
 
