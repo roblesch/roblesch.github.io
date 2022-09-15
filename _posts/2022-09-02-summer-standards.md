@@ -37,6 +37,8 @@ This post is a longer form of some slides I delivered as my internship wrap-up. 
 
 ## Project Overview
 
+<img src="/assets/images/summer22/overview.png" alt="banner"/>
+
 In MaterialX, materials are represented as a graph of nodes, where each node may be some closure of a physically based behavior (for example, a [dielectric bsdf](https://github.com/AcademySoftwareFoundation/MaterialX/blob/4f44b5a0e465ba6ec9abe8f246b504517fa32efa/libraries/pbrlib/pbrlib_defs.mtlx#L58)), an arithmetic operator node, or utilities for channel operations, etc. When material authoring is complete, the nodegraph can be processed by [MaterialX Shader Generation](https://materialx.org/docs/api/md_documents__developer_guide__shader_generation.html), to output a shader (OSL, glsl, hlsl, etc) that can be consumed by a renderer. I have a blog post on [generating OSL shaders with MaterialX](/2022/03/16/mtlx-to-osl.html).
 
 The MaterialX standard can encode many material models, and exposes single-node interfaces for some models which abstract away the underlying nodegraphs. Standard Surface and glTF PBR are two such models. This work aims to map Standard Surface material model inputs to the glTF PBR model resulting in a material that adheres to the glTF PBR model but maintains visual parity with its Standard Surface native equivalent. Additionally, MaterialX encoding of a glTF material can be exported to the [native glTF 2.0 JSON](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#schema-reference-material) to provide an end-to-end asset export pipeline from Standard Surface material producers to native glTF consumers.
