@@ -3,7 +3,7 @@ layout: post
 title:  "Summer of Standards"
 date:   2022-09-02
 author: Christian Robles
-image: "https://blog.roblesch.page/assets/images/summer22/autodesk-logo.jpeg"
+image: "https://blog.roblesch.page/assets/images/summer22/thumb.png"
 published: true
 ---
 
