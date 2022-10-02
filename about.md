@@ -10,6 +10,10 @@ I am a graduate student based in Los Angeles studying at the [University of Sout
 
 ### Industry
 
+#### [Autodesk](https://www.autodesk.com/) Remote, May 2022 - August 2022
+
+Autodesk Graphics Platform **Software Engineer Intern** Extended MaterialX with an export workflow from Standard Surface to glTF, with render pipelines verifying asset fidelity in [Arnold](https://www.autodesk.com/products/arnold/overview?term=1-YEAR&tab=subscription) and [dspbr-pt](https://github.com/DassaultSystemes-Technology/dspbr-pt).
+
 #### [Microsoft](https://devblogs.microsoft.com/cse/) Cambridge, MA July 2017 - July 2021
 
 Commercial Software Engineering **Software Engineer II**  Deployed infrastructure-as-code, CI/CD pipelines and build systems targeting the Azure Cloud with Microsoft's enterprise partners. 
