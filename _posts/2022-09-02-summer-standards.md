@@ -8,6 +8,8 @@ description: "This summer I had the opportunity to work with Autodesk’s Graphi
 published: true
 ---
 
+*Update: this work was recently [accepted to MaterialX](https://github.com/AcademySoftwareFoundation/MaterialX/pull/1064)! Thank you Ashwin for the help navigating corporate OSS policy :')*
+
 <img src="/assets/images/summer22/overview.png" alt="banner"/>
 
 This summer I had the opportunity to work with Autodesk's Graphics Platform Team on an extension for the Academy Software Foundation's [MaterialX](https://materialx.org/). Our goal was to support translation from Autodesk's [Standard Surface](https://autodesk.github.io/standard-surface/) material model to the Khronos Group's [glTF 2.0](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html) Physically Based Rendering (PBR) [Metallic-Roughness](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#materials) model. The project was done in Open Source, and was an exciting opportunity to engage with some of the most significant contributors in the open material standards community.
