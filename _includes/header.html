@@ -1,7 +1,8 @@
 <header class="site-header" role="banner">
 
   <div class="wrapper">
-    <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+    <a class="site-title" rel="author" href="{{ "/" | relative_url }}">
+      {{ site.title | escape }}</a>
     <nav class="site-nav">
       <input type="checkbox" id="nav-trigger" class="nav-trigger" />
       <label for="nav-trigger">
@@ -13,9 +14,13 @@
       </label>
 
       <div class="trigger">
-        <a class="page-link" href="/about">About</a>
-        <a class="page-link" href="/posts">Posts</a>
-        <!-- <a class="page-link" href="/assets/robles_christian_resume.pdf">Resume</a> -->
+        <a class="page-link" href="/blog">Blog</a>
+        <a class="page-link-separator">|</a>
+        <a class="page-link" href="/projects">Projects</a>
+        <a class="page-link-separator">|</a>
+        <a class="page-link" href="/archive">Archive</a>
+        <a class="page-link-separator">|</a>
+        <a class="page-link" href="/about">Resume</a>
       </div>
     </nav>
   </div>

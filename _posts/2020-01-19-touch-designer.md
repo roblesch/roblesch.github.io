@@ -3,6 +3,7 @@ layout: post
 title:  "Deadmau5 and PyTorch - Evaluating Real-Time Style Transfer in TouchDesigner"
 date:   2020-06-16
 author: Christian Robles
+category: blog
 published: true
 ---
 

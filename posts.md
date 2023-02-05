@@ -1,5 +1,5 @@
 ---
 layout: posts
-title: Posts
-permalink: /posts/
+category: archive
+permalink: /archive/
 ---

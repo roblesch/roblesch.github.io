@@ -3,8 +3,7 @@ layout: post
 title:  "Directed Research at USC"
 date:   2022-11-17
 author: Christian Robles
-image: ""
-description: ""
+category: blog
 published: true
 ---
 

@@ -38,11 +38,22 @@
   .page-link {
     color: $text-color;
     line-height: $base-line-height;
+    font-weight: 300;
 
     // Gaps between nav items, but not on the last one
-    &:not(:last-child) {
-      margin-right: 20px;
-    }
+    // &:not(:last-child) {
+    //   margin-right: 10px;
+    // }
+    // &:not(:first-child) {
+    //   margin-left: 5px;
+    // }
+  }
+
+  .page-link-separator {
+    color: $text-color;
+    font-weight: 300;
+    margin-left: 5px;
+    margin-right: 5px;
   }
 
   @include media-query($on-palm) {

@@ -3,6 +3,7 @@ layout: post
 title:  "Color Theory - Green Screen & Chroma Keying"
 date:   2021-11-03
 author: Christian Robles
+category: blog
 published: true
 ---
 

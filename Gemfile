@@ -11,3 +11,5 @@ end
 
 gem "webrick", "~> 1.7"
 gem "jekyll-seo-tag"
+
+gem "faraday-retry"

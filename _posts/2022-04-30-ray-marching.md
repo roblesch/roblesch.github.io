@@ -3,6 +3,7 @@ layout: post
 title:  "For Your Consideration, Bumpy Spheres"
 date:   2022-04-30
 author: Christian Robles
+category: blog
 published: true
 ---
 

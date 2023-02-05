@@ -3,6 +3,7 @@ layout: post
 title:  "Generating OSL Shaders with MaterialX"
 date:   2022-03-16
 author: Christian Robles
+category: blog
 tags: graphics
 published: true 
 ---

@@ -3,6 +3,7 @@ layout: post
 title:  "HyperVideo Authoring With Qt6"
 date:   2021-12-08
 author: Christian Robles
+category: blog
 published: true
 ---
 

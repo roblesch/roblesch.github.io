@@ -3,6 +3,7 @@ layout: post
 title:  "Shortest Path to Multiple Importance Sampling"
 date:   2022-02-08
 author: Christian Robles
+category: blog
 tags: graphics
 published: true 
 ---
