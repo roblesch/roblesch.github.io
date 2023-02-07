@@ -10,6 +10,9 @@ linkedin_username: roblesch
 theme: minima
 markdown: kramdown
 kramdown:
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
   math_engine: katex
 plugins:
   - jekyll-feed
