@@ -7,21 +7,17 @@ permalink: /about/
 
 ## Christian A. Robles
 
-I am a graduate student based in Los Angeles studying at the [University of Southern California](https://viterbischool.usc.edu/) pursuing a Master of Science in Computer Science with a specialization in [Multimedia and Creative Technologies](https://www.youtube.com/watch?v=DR71wKEFmGs). I'm excited about physically based rendering, procedural animation and digital audio synthesis. Previously [Software Engineering at Microsoft](https://devblogs.microsoft.com/cse/). Connect with me on [LinkedIn](https://www.linkedin.com/in/roblesch/) and [GitHub](https://github.com/roblesch/). Download this resume as a [pdf](/assets/robles_christian_resume.pdf).
+I'm a Masters student of Computer Science at the University of Southern California in the Multimedia and Technologies concentration interested in light transport, rendering and simulation. I'm currently exploring opportunities in computer graphics, real-time and production rendering, simulation and feature animation. Send me a message if you'd like to chat! Connect with me on [LinkedIn](https://www.linkedin.com/in/roblesch/) and [GitHub](https://github.com/roblesch/). Download my resume as a [pdf](/assets/christian-robles-resume-feb23.pdf).
 
 ### Industry
 
 #### [Autodesk](https://www.autodesk.com/) Remote, May 2022 - August 2022
 
-Autodesk Graphics Platform **Software Engineer Intern** Extended MaterialX with an export workflow from Standard Surface to glTF, with render pipelines verifying asset fidelity in [Arnold](https://www.autodesk.com/products/arnold/overview?term=1-YEAR&tab=subscription) and [dspbr-pt](https://github.com/DassaultSystemes-Technology/dspbr-pt).
+Autodesk Graphics Platform **Software Engineer Intern** Enhanced the ASWF-backed MaterialX look-development standard with export to Khronos Group’s glTF, with render pipelines verifying asset fidelity in [Arnold](https://www.autodesk.com/products/arnold/overview?term=1-YEAR&tab=subscription) and [dspbr-pt](https://github.com/DassaultSystemes-Technology/dspbr-pt).
 
 #### [Microsoft](https://devblogs.microsoft.com/cse/) Cambridge, MA July 2017 - July 2021
 
-Commercial Software Engineering **Software Engineer II**  Deployed infrastructure-as-code, CI/CD pipelines and build systems targeting the Azure Cloud with Microsoft's enterprise partners. 
-
-#### [Goldman Sachs](https://www.goldmansachs.com/careers/divisions/engineering/index.html) New York, NY Summer 2016
-
-**Summer Technology Analyst**  Developed a data collection pipeline and dashboard for over 80,000 private cloud-based endpoints to assess patch and security compliance.
+Commercial Software Engineering **Software Engineer II**  Worked directly with enterprise and not-for-profit partners to tackle their most significant technical challenges.
 
 ### Education
 

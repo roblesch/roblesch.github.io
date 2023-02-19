@@ -1,5 +1,5 @@
 ---
-layout: under-construction 
+layout: projects
 title: projects
 category: projects
 permalink: /projects/
