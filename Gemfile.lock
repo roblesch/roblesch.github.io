@@ -266,6 +266,7 @@ DEPENDENCIES
   faraday-retry
   github-pages (~> 219)
   jekyll-feed (~> 0.15)
+  jekyll-redirect-from
   jekyll-seo-tag
   minima (~> 2.5)
   webrick (~> 1.7)
