@@ -7,7 +7,7 @@ permalink: /about/
 
 ## Christian A. Robles
 
-I'm a Masters student of Computer Science at the University of Southern California in the Multimedia and Technologies concentration interested in light transport, rendering and simulation. I'm currently exploring opportunities in computer graphics, real-time and production rendering, simulation and feature animation. Send me a message if you'd like to chat! Connect with me on [LinkedIn](https://www.linkedin.com/in/roblesch/) and [GitHub](https://github.com/roblesch/). Download my resume as a [pdf](/assets/christian-robles-resume-feb23.pdf).
+I'm a Masters student of Computer Science at the University of Southern California in the Multimedia and Technologies concentration interested in light transport, rendering and simulation. I'm currently exploring opportunities in computer graphics, real-time and production rendering, simulation and feature animation. Send me a message if you'd like to chat! Connect with me on [LinkedIn](https://www.linkedin.com/in/roblesch/) and [GitHub](https://github.com/roblesch/). Download my resume as a [pdf](/assets/christian-robles-resume.pdf).
 
 ### Industry
 
