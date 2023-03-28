@@ -21,4 +21,5 @@ This project was approved! I'll be working under the advisory of Professor Ulric
 - [Pt. 2 - Base Renderer Implementation](https://blog.roblesch.page/blog/2023/01/17/ears-2.html)
 - [Pt. 3 - Renderer Debugging and Literature Review of RRS](https://blog.roblesch.page/blog/2023/02/07/ears-3.html)
 - [Pt. 4 - Denoising and the Spatial Cache](https://blog.roblesch.page/blog/2023/02/21/ears-4.html)
-- [Pt. 5 - RRS Prerequisites](https://blog.roblesch.page/blog/2023/02/21/ears-5.html)
+- [Pt. 5 - The EARS Tracer](https://blog.roblesch.page/blog/2023/03/07/ears-5.html)
+- [Pt. 6 - Statistical Accumulators](https://blog.roblesch.page/blog/2023/03/28/ears-6.html)
