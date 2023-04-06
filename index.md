@@ -1,7 +1,14 @@
 ---
 layout: home
 title: home
+description: "Hello!
+
+I'm Christian, a MSc. Computer Science (Multimedia and Creative Technologies) student at USC interested in light transport, rendering and simulation.
+Previously I worked at Autodeskd and Microsoft.
+
+This site is hosted on GitHub Pages and made with jekyll & customizations to minima. It is always a work in progress :) if you find something broken, shoot me a message!"
 ---
+
 ## Hello!
 I'm Christian, a [MSc. Computer Science (Multimedia and Creative Technologies)](https://www.cs.usc.edu/academic-programs/masters/multimedia-creative-technologies/) student at USC interested in light transport, rendering and simulation. Previously I worked at [Autodesk](/blog/2022/09/02/summer-standards.html) and [Microsoft](https://microsoft.github.io/code-with-engineering-playbook/CSE/).
 
