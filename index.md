@@ -1,12 +1,10 @@
 ---
 layout: home
 title: home
-description: "Hello!
+description: "I'm Christian, a MSc. Computer Science (Multimedia and Creative Technologies) student at USC interested in light transport, rendering and simulation.
+Previously I worked at Autodesk and Microsoft.
 
-I'm Christian, a MSc. Computer Science (Multimedia and Creative Technologies) student at USC interested in light transport, rendering and simulation.
-Previously I worked at Autodeskd and Microsoft.
-
-This site is hosted on GitHub Pages and made with jekyll & customizations to minima. It is always a work in progress :) if you find something broken, shoot me a message!"
+This site is hosted on GitHub Pages and made with jekyll & customizations to minima. It is always a work in progress - if you find something broken, shoot me a message!"
 ---
 
 ## Hello!
@@ -14,4 +12,4 @@ I'm Christian, a [MSc. Computer Science (Multimedia and Creative Technologies)](
 
 Check out my [blog](/blog), some selected [projects](/projects), and my [resume](/about).
 
-This site is hosted on [GitHub Pages](https://pages.github.com/) and made with [jekyll](https://github.com/jekyll/jekyll) & customizations to [minima](https://github.com/jekyll/minima). It is always a work in progress :) if you find something broken, shoot me a message!
+This site is hosted on [GitHub Pages](https://pages.github.com/) and made with [jekyll](https://github.com/jekyll/jekyll) & customizations to [minima](https://github.com/jekyll/minima). It is always a work in progress - if you find something broken, shoot me a message!
