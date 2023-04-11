@@ -21,6 +21,7 @@ This project was approved! I'll be working under the advisory of Professor Ulric
 - [Pt. 4 - Denoising and the Spatial Cache](https://blog.roblesch.page/blog/2023/02/21/ears-4.html)
 - [Pt. 5 - The EARS Tracer](https://blog.roblesch.page/blog/2023/03/07/ears-5.html)
 - [Pt. 6 - Statistical Accumulators](https://blog.roblesch.page/blog/2023/03/28/ears-6.html)
+- [Pt. 7 - Final Results](https://blog.roblesch.page/blog/2023/04/11/ears-7.html)
 
 ### Update 2 - results!
 
