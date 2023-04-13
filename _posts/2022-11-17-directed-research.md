@@ -28,5 +28,5 @@ This project was approved! I'll be working under the advisory of Professor Ulric
 
 <figure>
 <img src="/assets/images/ears/ears-64spp.png"/>
-<figcaption>Cornell Box with obscuring panel, EARRS, 16 iterations at 4spp, denoised</figcaption>
+<figcaption>Cornell Box with obscuring panel, EARS, 16 iterations at 4spp, denoised</figcaption>
 </figure>
