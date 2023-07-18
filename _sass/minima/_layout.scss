@@ -217,6 +217,15 @@
   @include relative-font-size(0.9);
   margin-left: 0;
   list-style: none;
+  padding-left: 4%;
+  li {
+    margin: 1%;
+  }
+  @include media-query($on-palm) {
+    li {
+      margin: 2%;
+    }
+  }
 }
 
 .post-meta {
