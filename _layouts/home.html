@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<html lang="{{ page.lang | default: site.lang | default: " en" }}">
 
-  {%- include head.html -%}
+{%- include head.html -%}
+
+<div class="home">
 
   <body>
 
@@ -9,44 +11,32 @@
 
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-md">
+              <div class="p-3">
+                {{ content }}
+              </div>
+            </div>
+          </div>
 
-<div class="home">
-  <div class="container text-center">
-    <div class="row">
-      <div class="col-md-auto">
-        <img src="/assets/images/about/index.png" alt="Christian Robles" width="150"/>
+          {%- include footer.html -%}
+
+          <div class="image-container">
+            <a href="/wip"><img src="assets/images/walking-sim/skull-bob.gif" /></a>
+            <a href="/wip"><img src="assets/images/palace/preview.jpg" /></a>
+            <a href="/blog/2022/11/17/directed-research.html"><img src="/assets/images/ears/ears-preview.jpg" /></a>
+            <a href="/blog/2022/09/02/summer-standards.html"><img
+                src="/assets/images/summer22/standard_surface_glass_tinted_look_home.png" /></a>
+            <a href="/blog/2022/03/16/mtlx-to-osl.html"><img src="/assets/images/mtlx-to-osl/osl-script-node.png" /></a>
+            <a href="/blog/2020/05/17/style-transfer.html"><img
+                src="assets/images/style-transfer/faces-rotate.gif" /></a>
+          </div>
+        </div>
+
       </div>
-      <div class="col-md">
-        <div class="p-3">
-          {{ content }}
-        </div>
-      </div>
-    </div>
-    {%- include footer.html -%}
-    <div class="row gy-1">
-      <div class="row gy-1 gx-2">
-        <div class="col-md">
-          <a href="/blog/2022/11/17/directed-research.html"><img src="/assets/images/ears/ears-preview.jpg" height="250" /></a>
-        </div>
-        <div class="col-md-auto">
-          <a href="/blog/2022/09/02/summer-standards.html"><img src="/assets/images/summer22/standard_surface_glass_tinted_look_home.png" /></a>
-        </div>
-      </div>
-      <div class="row gy-1 gx-2">
-        <div class="col-md gy-">
-          <a href="/blog/2022/03/16/mtlx-to-osl.html"><img src="/assets/images/mtlx-to-osl/osl-script-node.png" /></a>
-        </div>
-        <div class="col-md">
-          <a href="/blog/2020/05/17/style-transfer.html"><img src="assets/images/style-transfer/faces-rotate.gif" /></a>
-        </div>
-      </div>
-    </div>
-  </div>
+    </main>
+  </body>
 </div>
-
-</div>
-</main>
-
-</body>
 
 </html>
