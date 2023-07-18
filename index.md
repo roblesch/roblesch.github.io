@@ -4,7 +4,7 @@ title: home
 description: Welcome to my blog!
 ---
 
-## Hello~
+## Hello
 
 Welcome to my blog! I mostly write about Computer Graphics. Click the images below to read more about that project, or check out the [post archive](/archive).
 

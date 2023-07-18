@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Deadmau5 and PyTorch - Evaluating Real-Time Style Transfer in TouchDesigner"
+title:  "Evaluating Real-Time Style Transfer in TouchDesigner"
 date:   2020-06-16
 author: Christian Robles
 category: blog
@@ -17,7 +17,7 @@ The software is called [TouchDesigner](https://derivative.ca/) and is developed 
 
 There's a great [introduction series by Ben Voigt](https://www.youtube.com/watch?v=wmM1lCWtn6o) that walks through TouchDesigner fundamentals. In short, TouchDesigner is a software built for processing signals, generally audio or video. TouchDesigner projects (or networks) consist of operators (nodes) that output data to other operators. Signals are transformed with operators such as [TOP](https://docs.derivative.ca/TOP), [CHOP](https://docs.derivative.ca/CHOP), or [SOP](https://docs.derivative.ca/SOP), and then sent to outputs, like the screen of your laptop or the surface of deadmau5's cube.
 
-<img src="/assets/images/touchdesigner/touchdesignerproject.png" alt="touchdesigner" width="505"/>
+<a href="/assets/images/touchdesigner/touchdesignerproject.png"><img src="/assets/images/touchdesigner/touchdesignerproject.png" alt="touchdesigner" width="70%"/></a>
 
 TouchDesigner supports [Custom Operators](https://docs.derivative.ca/Custom_Operators) and has a [repository of examples](https://github.com/TouchDesigner/CustomOperatorSamples). Before jumping into writing a custom operator, I thought it would be best to check out other TouchDesigner projects and see if real time style transfer is a viable goal.
 

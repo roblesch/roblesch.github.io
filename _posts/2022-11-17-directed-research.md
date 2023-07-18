@@ -16,17 +16,17 @@ Link to proposal: [project-proposal](https://blog.roblesch.page/assets/roblesch_
 
 This project was approved! I'll be working under the advisory of Professor Ulrich Neumann toward completion of a report at end of Spring. I share progress posts every other Tuesday. I'll keep updating this page with links to each post.
 
-- [Pt. 1 - Project Introduction](https://blog.roblesch.page/blog/2023/01/04/ears-1.html)
-- [Pt. 2 - Base Renderer Implementation](https://blog.roblesch.page/blog/2023/01/17/ears-2.html)
-- [Pt. 3 - Renderer Debugging and Literature Review of RRS](https://blog.roblesch.page/blog/2023/02/07/ears-3.html)
-- [Pt. 4 - Denoising and the Spatial Cache](https://blog.roblesch.page/blog/2023/02/21/ears-4.html)
-- [Pt. 5 - The EARS Tracer](https://blog.roblesch.page/blog/2023/03/07/ears-5.html)
-- [Pt. 6 - Statistical Accumulators](https://blog.roblesch.page/blog/2023/03/28/ears-6.html)
-- [Pt. 7 - Final Results](https://blog.roblesch.page/blog/2023/04/11/ears-7.html)
+- [Pt. 1 - Project Introduction](/blog/2023/01/04/ears-1.html)
+- [Pt. 2 - Base Renderer Implementation](/blog/2023/01/17/ears-2.html)
+- [Pt. 3 - Renderer Debugging and Literature Review of RRS](/blog/2023/02/07/ears-3.html)
+- [Pt. 4 - Denoising and the Spatial Cache](/blog/2023/02/21/ears-4.html)
+- [Pt. 5 - The EARS Tracer](/blog/2023/03/07/ears-5.html)
+- [Pt. 6 - Statistical Accumulators](/blog/2023/03/28/ears-6.html)
+- [Pt. 7 - Final Results](/blog/2023/04/11/ears-7.html)
 
 ### Update 2 - results!
 
 <figure>
-<img src="/assets/images/ears/ears-64spp.png"/>
+<a href="/assets/images/ears/ears-64spp.png"><img src="/assets/images/ears/ears-64spp.png" width="80%"/></a>
 <figcaption>Cornell Box with obscuring panel, EARS, 16 iterations at 4spp, denoised</figcaption>
 </figure>
