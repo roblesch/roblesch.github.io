@@ -13,6 +13,9 @@
       <div class="wrapper">
         <div class="container text-center">
           <div class="row">
+            <div class="col-md-auto">
+              <img src="/assets/images/about/index.png" alt="Christian Robles" width="150"/>
+            </div>
             <div class="col-md">
               <div class="p-3">
                 {{ content }}
@@ -22,15 +25,48 @@
 
           {%- include footer.html -%}
 
-          <div class="image-container">
-            <a href="/wip"><img src="assets/images/walking-sim/skull-bob.gif" /></a>
-            <a href="/wip"><img src="assets/images/palace/preview.jpg" /></a>
-            <a href="/blog/2022/11/17/directed-research.html"><img src="/assets/images/ears/ears-preview.jpg" /></a>
-            <a href="/blog/2022/09/02/summer-standards.html"><img
-                src="/assets/images/summer22/standard_surface_glass_tinted_look_home.png" /></a>
-            <a href="/blog/2022/03/16/mtlx-to-osl.html"><img src="/assets/images/mtlx-to-osl/osl-script-node.png" /></a>
-            <a href="/blog/2020/05/17/style-transfer.html"><img
-                src="assets/images/style-transfer/faces-rotate.gif" /></a>
+          <div class="gallery-grid">
+            <div class="gallery-item gallery-item-lg">
+              <a href="/wip">
+                <img src="assets/images/palace/preview.jpg" />
+              </a>
+            </div>
+            <div class="gallery-item gallery-item-sm">
+              <a href="/wip">
+                <video autoplay muted loop playsinline>
+                  <source src="assets/images/walking-sim/skull-bob.mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </a>
+            </div>
+            <div class="gallery-item gallery-item-md">
+              <a href="/wip">
+                <img src="/assets/images/grandmagreen/garden-night.jpg" />
+              </a>
+            </div>
+            <div class="gallery-item gallery-item-md">
+              <a href="/blog/2022/11/17/directed-research.html">
+                <img src="/assets/images/ears/ears-preview.jpg" />
+              </a>
+            </div>
+            <div class="gallery-item gallery-item-sm">
+              <a href="/blog/2022/09/02/summer-standards.html">
+                <img src="/assets/images/summer22/standard_surface_glass_tinted_look_home.png" />
+              </a>
+            </div>
+            <div class="gallery-item gallery-item-xl">
+              <a href="/blog/2022/04/30/ray-marching.html">
+                <img src="/assets/images/ray-marching/teaser.jpg" />
+              </a>
+            </div>
+            <div class="gallery-item gallery-item-md2">
+              <a href="/blog/2020/05/17/style-transfer.html">
+                <video autoplay muted loop playsinline>
+                  <source src="assets/images/style-transfer/faces-rotate.mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </a>
+            </div>
           </div>
         </div>
 
