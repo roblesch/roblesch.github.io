@@ -60,7 +60,9 @@ My first exposure to the Monte Carlo method was from Thomas J. Sargent's online 
 
 Here is nice a video that illustrates this idea -
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/I_plXHHKPCo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="iframe-wrapper">
+  <iframe class="responsive-iframe" src="https://www.youtube.com/embed/I_plXHHKPCo"></iframe>
+</div>
 
 <br>
 
@@ -85,7 +87,9 @@ In light transport the analogous sampling of regions that provide more informati
 
 Here is a very good video on the subject of importance sampling. It's made for a Machine Learning audience, but the theory is the same -
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/C3p2wI4RAi8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="iframe-wrapper">
+  <iframe class="responsive-iframe" src="https://www.youtube.com/embed/C3p2wI4RAi8"></iframe>
+</div>
 
 More information:
 - Shirley 2, 3, 6
@@ -222,7 +226,9 @@ We can see that Multiple Importance Sampling allows us to utilize different samp
 
 I reached out to [Adam Celarek](https://www.cg.tuwien.ac.at/staff/AdamCelarek), a PhD candidate at [TU Wien](https://www.tuwien.at/) after I came across his [lecture slides](https://www.cg.tuwien.ac.at/sites/default/files/course/4411/attachments/08_mis.pdf) on the topic of MIS. There is also a recording of his lecture, available here -
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2S6imDIiFTM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="iframe-wrapper">
+  <iframe class="responsive-iframe" src="https://www.youtube.com/embed/2S6imDIiFTM"></iframe>
+</div>
 
 <br>
 

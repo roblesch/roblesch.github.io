@@ -4,8 +4,9 @@ title: home
 description: Welcome to my blog!
 ---
 
-## Hello
+## Welcome!
 
-Welcome to my blog! I'm a recent MSc. Computer Science graduate with a passion for Graphics Programming and Light Transport.
+This is my personal site where I showcase projects and blog about interesting things I work on. Select the images below to read more, or check out the [post archive](/archive).
 
-Select the images below to read more about that project, or check out the [post archive](/archive).
+### About me
+I'm a recent MSc. Computer Science graduate with a passion for Graphics, Games and Mathematics. Before my graduate studies I was a Software Engineer in the enterprise cloud computing industry.

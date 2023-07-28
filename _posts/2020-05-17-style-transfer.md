@@ -7,7 +7,9 @@ category: blog
 published: true
 ---
 
-<iframe width="505" height="280" src="https://www.youtube.com/embed/SqayDnQ2wmw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="iframe-wrapper">
+  <iframe class="responsive-iframe" src="https://www.youtube.com/embed/SqayDnQ2wmw"></iframe>
+</div>
 
 Recently I was watching the Music video for Aphex Twin's "T69 Collapse" and I was curious about some effects -
 

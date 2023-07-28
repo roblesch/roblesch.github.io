@@ -9,7 +9,9 @@ published: true
 
 I've been a long time [deadmau5](https://deadmau5.com) fan. Last January I had the chance to see him perform at the House of Blues in Boston as part of his [cube v3 tour](https://cubev3.com/). There's a great behind the scenes video where he talks about about the software that powers the show -
 
-<iframe width="505" height="280" src="https://www.youtube.com/embed/H2fDbkXoVZs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="iframe-wrapper">
+  <iframe class="responsive-iframe" src="https://www.youtube.com/embed/H2fDbkXoVZs"></iframe>
+</div>
 
 The software is called [TouchDesigner](https://derivative.ca/) and is developed by Derivative. In May I played with [Style Transfer and 3d Scanning](/2020/05/17/style-transfer.html), and I was curious if it would be possible to implement a custom TouchDesigner operator to perform style transfer on video inputs in real time.
 
