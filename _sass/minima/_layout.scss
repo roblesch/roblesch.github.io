@@ -61,7 +61,6 @@
  */
 .site-footer {
   border-top: 1px solid $grey-color-light;
-  border-bottom: 1px solid $grey-color-light;
   padding: $spacing-unit 0;
 }
 
@@ -185,6 +184,11 @@
  * Home
  */
 .home {
+  .read-more {
+    text-align: center;
+    color: gray;
+  }
+  
   .gallery-grid {
     display: grid;
     gap: 20px;
