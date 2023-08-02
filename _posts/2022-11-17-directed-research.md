@@ -14,7 +14,7 @@ Link to proposal: [project-proposal](https://blog.roblesch.page/assets/roblesch_
 
 ### Update 
 
-This project was approved! I'll be working under the advisory of Professor Ulrich Neumann toward completion of a report at end of Spring. I share progress posts every other Tuesday. I'll keep updating this page with links to each post.
+This project was approved! I'll be working under the advisory of Professor Ulrich Neumann this semester and sharing progress posts every other Tuesday. I'll keep updating this page with links to each post.
 
 - [Pt. 1 - Project Introduction](/blog/2023/01/04/ears-1.html)
 - [Pt. 2 - Base Renderer Implementation](/blog/2023/01/17/ears-2.html)

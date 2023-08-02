@@ -10,8 +10,14 @@ published: true
 
 Last weekend I kicked off my spring break with a visit to Sequoia National Park. We saw some beautiful big trees and stopped at Bishop Peak on our return trip to get kicked by some stiff postwar boulders.
 
-<img src="/assets/images/mtlx-to-osl/bigtree.png" alt="big trees" width="40%"/>
-<img src="/assets/images/mtlx-to-osl/bigrock.png" alt="big boulders" width="40%"/>
+<div class="gallery-grid grid-2">
+  <div class="gallery-item gallery-item-sm">
+    <img src="/assets/images/mtlx-to-osl/bigtree.png" alt="big trees" width="40%"/>
+  </div>
+  <div class="gallery-item gallery-item-sm">
+    <img src="/assets/images/mtlx-to-osl/bigrock.png" alt="big boulders" width="40%"/>
+  </div>
+</div>
 
 Having shaken off some spring semester burnout, I spent the past few days figuring out how to generate OSL shaders from *.mtlx files using MaterialX. In this post I'll give an overview of MaterialX, share the snippets I used to generate OSL shader source, and show some examples of using the generated shaders in Blender.
 
@@ -21,8 +27,14 @@ Having shaken off some spring semester burnout, I spent the past few days figuri
 
 MaterialX is an open standard for representing surface materials. The repository holds some [sample .mtlx files](https://github.com/AcademySoftwareFoundation/MaterialX/tree/main/resources/Materials/Examples/StandardSurface), which can be viewed using the [MaterialX Viewer](https://github.com/AcademySoftwareFoundation/MaterialX/blob/main/documents/DeveloperGuide/Viewer.md). The viewer seems to have some components that don't play well with the M1 chip, so I built it with x86 rosetta.
 
-<img src="/assets/images/mtlx-to-osl/mtlx-viewer.png" alt="viewer" width="40%"/>
-<img src="/assets/images/mtlx-to-osl/mtlx-viewer-opts.png" alt="viewer opts" width="40%"/>
+<div class="gallery-grid grid-2">
+  <div class="gallery-item gallery-item-sm">
+    <img src="/assets/images/mtlx-to-osl/mtlx-viewer.png" alt="viewer" width="40%"/>
+  </div>
+  <div class="gallery-item gallery-item-sm">
+    <img src="/assets/images/mtlx-to-osl/mtlx-viewer-opts.png" alt="viewer opts" width="40%"/>
+  </div>
+</div>
 
 Using the viewer, we can show some sample materials. For this example, I'll take the [`standard_surface_gold.mtlx`](https://github.com/AcademySoftwareFoundation/MaterialX/blob/main/resources/Materials/Examples/StandardSurface/standard_surface_gold.mtlx) and translate it to OSL. Here's how the gold material looks on [Dennis](https://free3d.com/3d-model/dennis-posed-004-812878.html) -
 
@@ -42,6 +54,11 @@ You can find a sample generated OSL file in `mtlx-to-osl/samples/standard_surfac
 
 With [Blender](https://www.blender.org/), we can preview our generated OSL code. We can load our source as a [script node](https://docs.blender.org/manual/en/latest/render/shader_nodes/osl.html) and attach its output to a mesh. Here's a scene I put together with the generated OSL on the mesh of Dennis, in a diffuse box with some emissive surface lights. Rendered with Cycles, 1024 samples, denoised. The blender scene is available in `samples/blender-sample.blend`. You may need to re-connect the OSL script nodes.
 
-<img src="/assets/images/mtlx-to-osl/osl-script-node.png" alt="script node" width="80%"/>
-
-<img src="/assets/images/mtlx-to-osl/dennis-gold-render.png" alt="viewer opts" width="80%"/>
+<div class="gallery-grid grid-2">
+  <div class="gallery-item gallery-item-sm">
+    <img src="/assets/images/mtlx-to-osl/osl-script-node.png" alt="script node" width="80%"/>
+  </div>
+  <div class="gallery-item gallery-item-sm">
+    <img src="/assets/images/mtlx-to-osl/dennis-gold-render.png" alt="viewer opts" width="80%"/>
+  </div>
+</div>

@@ -15,11 +15,14 @@ A simple hueristic performs best across these cases. Convert the RGB images into
 
 There's some trouble at the edges, but for the purpose of the assignment the results are good. I implemented a Gaussian blur filter to smooth out jaggedness a bit.
 
+<div class="gallery-grid grid-2">
 <a href="/assets/images/chromakey/bufforig.png"><img src="/assets/images/chromakey/bufforig.png" alt="shia" width="40%"/></a>
 <a href="/assets/images/chromakey/buffkeyed.png"><img src="/assets/images/chromakey/buffkeyed.png" alt="shia" width="40%"/></a>
-
 <a href="/assets/images/chromakey/gusorig.png"><img src="/assets/images/chromakey/gusorig.png" alt="gus" width="40%"/></a>
 <a href="/assets/images/chromakey/guskeyed.png"><img src="/assets/images/chromakey/guskeyed.png" alt="gus" width="40%"/></a>
-
 <a href="/assets/images/chromakey/ninjaorig.png"><img src="/assets/images/chromakey/ninjaorig.png" alt="ninja" width="40%"/></a>
 <a href="/assets/images/chromakey/ninjakeyed.png"><img src="/assets/images/chromakey/ninjakeyed.png" alt="ninja" width="40%"/></a>
+</div>
+
+
+

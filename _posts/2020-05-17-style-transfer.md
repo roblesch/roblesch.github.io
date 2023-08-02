@@ -10,14 +10,15 @@ published: true
 <div class="iframe-wrapper">
   <iframe class="responsive-iframe" src="https://www.youtube.com/embed/SqayDnQ2wmw"></iframe>
 </div>
+<br>
 
 Recently I was watching the Music video for Aphex Twin's "T69 Collapse" and I was curious about some effects -
 
-<figure>
+<div class="gallery-grid grid-2">
 <a href="/assets/images/style-transfer/building-2.png"><img src="/assets/images/style-transfer/building-2.png" alt="building" width="40%"/></a>
 <a href="/assets/images/style-transfer/building.png"><img src="/assets/images/style-transfer/building.png" alt="building" width="40%"/></a>
+</div>
 <figcaption>Screenshots from 0:34, 1:45</figcaption>
-</figure>
 
 The video was created by [Weirdcore](http://weirdcore.tv/) - you can find his post about it [here](http://weirdcore.tv/2018/08/07/aphex-twin-collapse-video/). It includes links to interviews where Weirdcore discusses his process, use of photogrammetry in his works, and how he achieved some of the effects in T69 Collapse through the use of Style Transfer.
 
@@ -51,22 +52,38 @@ I thought it would be interesting to see if I could apply style transfer to a 3d
 
 To capture a 3d scan, I found the app [Scandy Pro 3D Scanner](https://apps.apple.com/us/app/scandy-pro-3d-scanner/id1388028223) on the app store. It worked alright, the fidelity is about what you could expect. The app gives a model and some textures. I loaded the model into [Blender](https://www.blender.org/) and attached the textures for some interesting results -
 
-
+<div class="gallery-grid grid-2">
 <img src="/assets/images/style-transfer/face-raw.png" alt="face" width="40%"/>
 <img src="/assets/images/style-transfer/face.png" alt="face" width="40%"/>
+</div>
 
 For style transfer, I found [Arbitrary Style Transfer in the Browser](https://reiinakano.com/arbitrary-image-stylization-tfjs/). I ran the scandy textures through style transfer on a couple of their sample images -
 
+<div class="gallery-grid grid-2">
+<div class="gallery-item gallery-item-sm">
 <img src="/assets/images/style-transfer/clouds-src.jpeg" alt="face" width="40%"/>
+</div>
+<div class="gallery-item gallery-item-sm">
 <img src="/assets/images/style-transfer/face-clouds.png" alt="face" width="40%"/>
-
+</div>
+<div class="gallery-item gallery-item-sm">
 <img src="/assets/images/style-transfer/sketch-src.jpeg" alt="face" width="40%"/>
+</div>
+<div class="gallery-item gallery-item-sm">
 <img src="/assets/images/style-transfer/face-sketch.png" alt="face" width="40%"/>
+</div>
+</div>
 
 Out of curiosity I ran style transfer with the original texture as the style image -
 
+<div class="gallery-grid grid-2">
+<div class="gallery-item gallery-item-sm">
 <img src="/assets/images/style-transfer/face-texture.png" alt="face" width="40%"/>
+</div>
+<div class="gallery-item gallery-item-sm">
 <img src="/assets/images/style-transfer/face-recurs.png" alt="face" width="40%"/>
+</div>
+</div>
 
 Here's what the transferred textures look like mapped back onto the models -
 

@@ -11,7 +11,7 @@ published: true
 
 *Update: this work was recently [accepted to MaterialX](https://github.com/AcademySoftwareFoundation/MaterialX/pull/1064)! Thank you Ashwin for the help navigating corporate OSS policy :')*
 
-<img src="/assets/images/summer22/overview.png" alt="banner" width="100%"/>
+<img src="/assets/images/summer22/overview.png" alt="banner" width="100%" class="no-shadow"/>
 
 This summer I had the opportunity to work with Autodesk's Graphics Platform Team on an extension for the Academy Software Foundation's [MaterialX](https://materialx.org/). Our goal was to support translation from Autodesk's [Standard Surface](https://autodesk.github.io/standard-surface/) material model to the Khronos Group's [glTF 2.0](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html) Physically Based Rendering (PBR) [Metallic-Roughness](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#materials) model. The project was done in Open Source, and was an exciting opportunity to engage with some of the most significant contributors in the open material standards community.
 
@@ -48,18 +48,18 @@ The MaterialX standard can encode many material models, and exposes single-node 
 
 ## Translation & Reference Renders
 
-<img src="/assets/images/summer22/translation.png" alt="translation" width="100%" />
+<img src="/assets/images/summer22/translation.png" alt="translation" width="100%" class="no-shadow"/>
 
 Material Translation occurs in three stages starting from a MaterialX encoding of a Standard Surface material. This material's inputs are mapped to a translation nodegraph, which maps them to a glTF PBR node. This stack of Standard Surface:translation node:glTF PBR nodes are processed by [MaterialX texture baking](https://github.com/AcademySoftwareFoundation/MaterialX/blob/50d45c146c959a6891dc4140a7eae792f094e2d1/source/MaterialXRenderGlsl/TextureBaker.cpp). The flattened glTF PBR node is then exported to native glTF with cgltf.
 
 This project focused on the implementation of the translation nodegraph and enhancements to native glTF export. The nodegraph achieved approximate parity for core features, and further enhancements for greater visual parity between Standard Surface and glTF PBR are still ongoing.
 
-<img src="/assets/images/summer22/rendering.png" alt="rendering" width="100%" />
+<img src="/assets/images/summer22/rendering.png" alt="rendering" width="100%" class="no-shadow"/>
 
 Each stage of materials is consumed by a renderer for reference. Standard Surface MaterialX files are consumed by Arnold directly, and glTF PBR materials are consumed by Arnold after shader generation to OSL. Native glTF materials are consumed by dspbr-pt.
 
 
-<img src="/assets/images/summer22/batching.png" alt="rendering" width="100%" />
+<img src="/assets/images/summer22/batching.png" alt="rendering" width="100%" class="no-shadow"/>
 
 Orchestrating translation and rendering is straightforward - MaterialX offers Python bindings for its utilities via [pybind11](https://github.com/pybind/pybind11). A set of test materials gathered from the [AMD GPUOpen MaterialX library](https://matlib.gpuopen.com/main/materials/all) are enumerated and processed, generating the intermediate materials on each step from MaterialX Standard Surface to native glTF. Arnold renders are automated with the Kick API, and dspbr-pt via its command line.
 

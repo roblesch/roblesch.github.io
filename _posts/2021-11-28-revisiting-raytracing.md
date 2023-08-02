@@ -11,6 +11,6 @@ Our end of semester project was the implementation of a simple ray tracer. Previ
 
 This assignment required ray-sphere and ray-triangle intersection, phong shading, phong lighting, and shadow rays. For extra credit I've also implemented soft shadows and anti aliasing.
 
-<a href="/assets/images/rtrevisited/table.png"><img src="/assets/images/rtrevisited/table.png" alt="table" width="30%"/></a>
-<a href="/assets/images/rtrevisited/spheres.png"><img src="/assets/images/rtrevisited/spheres.png" alt="spheres" width="30%"/></a>
-<a href="/assets/images/rtrevisited/siggraph.png"><img src="/assets/images/rtrevisited/siggraph.png" alt="siggraph" width="30%"/></a>
+<a href="/assets/images/rtrevisited/table.png"><img class="no-shadow" src="/assets/images/rtrevisited/table.png" alt="table" width="30%"/></a>
+<a href="/assets/images/rtrevisited/spheres.png"><img class="no-shadow" src="/assets/images/rtrevisited/spheres.png" alt="spheres" width="30%"/></a>
+<a href="/assets/images/rtrevisited/siggraph.png"><img class="no-shadow" src="/assets/images/rtrevisited/siggraph.png" alt="siggraph" width="30%"/></a>

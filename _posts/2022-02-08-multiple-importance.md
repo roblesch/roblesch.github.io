@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Multiple Importance Sampling"
+title:  "MIS: Reviewing Veach's Thesis"
 date:   2022-02-08
 author: Christian Robles
 category: blog
@@ -8,23 +8,54 @@ tags: graphics
 published: true 
 ---
 
+<figcaption>> Update on 8/2/2023 <</figcaption>
+
+I've been sifting through my blog, reformatting old posts and cleaning up some long standing sitewide CSS issues. I think this post deserves a special foreward because most of my interpretations of multiple importance sampling and their applications in path tracing were pretty incorrect. At the time I had a much hazier view of where probability and statistics ended and light transport began (nothing a course in probability course didn't fix!). Still, I think it's worth leaving up as one of my first deep dives into light transport theory. If you'd like to see some of my better work in light transport, check out my [Directed Research Project](/blog/2022/11/17/directed-research.html).
+
+<figcaption>> Update on 2/9/2022 <</figcaption>
+
+### Issues with this post
+
+I reached out to [Adam Celarek](https://www.cg.tuwien.ac.at/staff/AdamCelarek) of [TU Wien](https://www.tuwien.at/) after I came across his [lecture slides](https://www.cg.tuwien.ac.at/sites/default/files/course/4411/attachments/08_mis.pdf) on the topic of MIS. There is also a recording of his lecture available here -
+
+<div class="iframe-wrapper">
+  <iframe class="responsive-iframe" src="https://www.youtube.com/embed/2S6imDIiFTM"></iframe>
+</div>
+
+<br>
+
+Adam pointed out that this light sampling strategy (which is essentially direct lighting) is not unbiased - that is, given enough samples, it will never converge on a correct solution. This can be verified by comparing against sampling the BRDF or Peter's mixture pdf - no matter how many times the light is sampled, the result will never contain any information for the regions in shadow.
+
+Additionally, Peter's mixture pdf already demonstrates multiple importance sampling, using a *one-sample model* (Veach 9.2.4). What I've implemented is a *multi-sample model* (Veach 9.2.1), but using the mixture pdf as one of the sampling functions is questionable.
+
+>From what i see from the code on Ray Tracing - The Rest of Your Life, I believe it is already MIS with the balance heuristic. Compare with my slides, page 24, p_i, of the currently selected PDF cancels out, and you get f(x)/(p0(x)+p1(x)).*
+
+>Veach said: we have n sampling strategies, and we take n_i samples each. He was computing the weight w for each sampling strategy separately. If you do that, you have to send one ray cast per sampling strategy. What is done more often, is to select a sampling strategy with a uniform probability, then compute a single weight and use it (my slides, page 27, that is the balance heuristic). That being said, you seem to sample two strategies on every hit, which should be correct. The problem with this is, that the number of rays going through the scene doubles on each hitpoint (if not reduced by an aggressive RR, and I can imagine, that such an aggressive RR would introduce more noise).
+
+
+<figcaption>
+> Original post <
+</figcaption>
+
+# Multiple Importance Sampling
+
 Since mid December, I've been reading Eric Veach's 1997 Ph.D. Thesis [*Robust Monte Carlo Methods for Light Transport Simulation*](http://graphics.stanford.edu/papers/veach_thesis/). I've recently been working on extending Peter Shirley's implementation of a Monte Carlo path tracer from his book [*Ray Tracing: The Rest Of Your Life*](https://raytracing.github.io/books/RayTracingTheRestOfYourLife.html) with the Multiple Importance Sampling techniques proposed by Veach as a side project. After about 7 weeks of staring at formulas and banging my head into things, I think I've got something to share (a whole week ahead of schedule too!)
 
 In this post I'll share the route I took through Veach's thesis and how I implemented Multiple Importance Sampling with a Balance Heuristic in Peter Shirley's path tracer. Shortest path is a bit of a stretch. The source for this project is [available here](https://github.com/roblesch/multiple-importance-sampling).
 
 Many personal thanks to Mike Day for recommending the readings that gave this project its legs, Peter Shirley for entertaining too many questions, and to Professor Neumann for some generous encouragement. Extra thanks to Adam Celarek from TU Wien for taking the time for a detailed review of my implementation - Adam pointed out that there are issues with the light sampling, I've added his comments and some extra links in the Issues section of this post.
 
-- [Overview](#overview)
-- [Light Transport](#light-transport)
-- [Monte Carlo Methods](#monte-carlo-methods)
-  - [Advantages of Monte Carlo Methods](#advantages-of-monte-carlo-methods)
-- [Importance Sampling](#importance-sampling)
 - [Multiple Importance Sampling](#multiple-importance-sampling)
-- [Implementation](#implementation)
-  - [Implementing MIS](#implementing-mis)
-  - [Notes](#notes)
-- [Sources](#sources)
-- [Issues](#issues)
+  - [Overview](#overview)
+  - [Light Transport](#light-transport)
+  - [Monte Carlo Methods](#monte-carlo-methods)
+    - [Advantages of Monte Carlo Methods](#advantages-of-monte-carlo-methods)
+  - [Importance Sampling](#importance-sampling)
+  - [Multiple Importance Sampling](#multiple-importance-sampling-1)
+  - [Implementation](#implementation)
+    - [Implementing MIS](#implementing-mis)
+    - [Notes](#notes)
+  - [Sources](#sources)
 
 <br>
 
@@ -40,7 +71,7 @@ The primary sources for this post are [Eric Veach's thesis](http://graphics.stan
 
 ## Light Transport
 
-<a href="https://www.pbr-book.org/3ed-2018/Light_Transport_I_Surface_Reflection/The_Light_Transport_Equation"><img src="https://www.pbr-book.org/3ed-2018/Light_Transport_I_Surface_Reflection/path-annotated-1.svg" alt="pbrt" width="60%"/></a>
+<a href="https://www.pbr-book.org/3ed-2018/Light_Transport_I_Surface_Reflection/The_Light_Transport_Equation"><img src="https://www.pbr-book.org/3ed-2018/Light_Transport_I_Surface_Reflection/path-annotated-1.svg" class="no-shadow" alt="pbrt" width="60%"/></a>
 
 > The light transport equation (LTE) is the governing equation that describes the equilibrium distribution of radiance in a scene. It gives the total reflected radiance at a point on a surface in terms of emission from the surface, its BSDF, and the distribution of incident illumination arriving at the point. [PBRT 14.4](https://www.pbr-book.org/3ed-2018/Light_Transport_I_Surface_Reflection/The_Light_Transport_Equation)
 
@@ -88,7 +119,7 @@ In light transport the analogous sampling of regions that provide more informati
 Here is a very good video on the subject of importance sampling. It's made for a Machine Learning audience, but the theory is the same -
 
 <div class="iframe-wrapper">
-  <iframe class="responsive-iframe" src="https://www.youtube.com/embed/C3p2wI4RAi8"></iframe>
+  <iframe class="responsive-iframe" src="https://www.youtube.com/embed/C3p2wI4RAi8"></iframe> 
 </div>
 
 More information:
@@ -100,9 +131,17 @@ More information:
 
 ## Multiple Importance Sampling
 
-<img src="/assets/images/mis/brdf-16.png" alt="brdf-16" width="30%"/>
-<img src="/assets/images/mis/lights-16.png" alt="lights-16" width="30%"/>
-<img src="/assets/images/mis/mis_brdf-16.png" alt="mis-brdf-16" width="30%"/>
+<div class="gallery-grid no-gap">
+  <div class="gallery-item gallery-item-sm">
+    <img src="/assets/images/mis/brdf-16.png" alt="brdf-16" width="30%"/>
+  </div>
+  <div class="gallery-item gallery-item-sm">
+    <img src="/assets/images/mis/lights-16.png" alt="lights-16" width="30%"/>
+  </div>
+  <div class="gallery-item gallery-item-sm">
+    <img src="/assets/images/mis/mis_brdf-16.png" alt="mis-brdf-16" width="30%"/>
+  </div>
+</div>
 
 The image on the left was generated by sampling the BRDF only. We can see that sampling the BRDF is very noisy at few samples. It converges on an approximation of the color of a pixel very slowly, since the chance of finding our way to the light by random scattering is very low.
 
@@ -128,10 +167,17 @@ I began with [the source from](https://github.com/RayTracing/raytracing.github.i
 
 Mixture pdf, 16, 64, 256 samples per pixel
 
-<img src="/assets/images/mis/mixed-16.png" alt="mixed-16" width="30%"/>
-<img src="/assets/images/mis/mixed-64.png" alt="mixed-64" width="30%"/>
-<img src="/assets/images/mis/mixed-256.png" alt="mixed-256" width="30%"/>
-
+<div class="gallery-grid no-gap">
+  <div class="gallery-item gallery-item-sm">
+    <img src="/assets/images/mis/mixed-16.png" alt="mixed-16" width="30%"/>
+  </div>
+  <div class="gallery-item gallery-item-sm">
+    <img src="/assets/images/mis/mixed-64.png" alt="mixed-64" width="30%"/>
+  </div>
+  <div class="gallery-item gallery-item-sm">
+    <img src="/assets/images/mis/mixed-256.png" alt="mixed-256" width="30%"/>
+  </div>
+</div>
 
 To make implementation of MIS a little easier, I made some small simplifications:
 
@@ -151,9 +197,17 @@ This function separates the evaluation of the [BRDF](https://raytracing.github.i
 
 Sampling BRDF, 16, 64, 256 samples per pixel
 
-<img src="/assets/images/mis/brdf-16.png" alt="brdf-16" width="30%"/>
-<img src="/assets/images/mis/brdf-64.png" alt="brdf-64" width="30%"/>
-<img src="/assets/images/mis/brdf-256.png" alt="brdf-256" width="30%"/>
+<div class="gallery-grid no-gap">
+  <div class="gallery-item gallery-item-sm">
+    <img src="/assets/images/mis/brdf-16.png" alt="brdf-16" width="30%"/>
+  </div>
+  <div class="gallery-item gallery-item-sm">
+    <img src="/assets/images/mis/brdf-64.png" alt="brdf-64" width="30%"/>
+  </div>
+  <div class="gallery-item gallery-item-sm">
+    <img src="/assets/images/mis/brdf-256.png" alt="brdf-256" width="30%"/>
+  </div>
+</div>
 
 `Ld(ray, scene, lights)`
 
@@ -161,10 +215,17 @@ This function separates the evaluation of the [lights](https://raytracing.github
 
 Sampling Lights, 16, 64, 256 samples per pixel
 
-<img src="/assets/images/mis/lights-16.png" alt="lights-16" width="30%"/>
-<img src="/assets/images/mis/lights-64.png" alt="lights-64" width="30%"/>
-<img src="/assets/images/mis/lights-256.png" alt="lights-256" width="30%"/>
-
+<div class="gallery-grid no-gap">
+  <div class="gallery-item gallery-item-sm">
+    <img src="/assets/images/mis/lights-16.png" alt="lights-16" width="30%"/>
+  </div>
+  <div class="gallery-item gallery-item-sm">
+    <img src="/assets/images/mis/lights-64.png" alt="lights-64" width="30%"/>
+  </div>
+  <div class="gallery-item gallery-item-sm">
+    <img src="/assets/images/mis/lights-256.png" alt="lights-256" width="30%"/>
+  </div>
+</div>
 
 `pe(ray, scene)`
 
@@ -198,15 +259,31 @@ Using this implementation yields the following results -
 
 Multiple Importance, Lights + BRDF, Balance Heuristic, 16, 64, 256 samples per pixel
 
-<img src="/assets/images/mis/mis_brdf-16.png" alt="mis-brdf-16" width="30%"/>
-<img src="/assets/images/mis/mis_brdf-64.png" alt="mis-brdf-64" width="30%"/>
-<img src="/assets/images/mis/mis_brdf-256.png" alt="mis-brdf-256" width="30%"/>
+<div class="gallery-grid no-gap">
+  <div class="gallery-item gallery-item-sm">
+    <img src="/assets/images/mis/mis_brdf-16.png" alt="mis-brdf-16" width="30%"/>
+  </div>
+  <div class="gallery-item gallery-item-sm">
+    <img src="/assets/images/mis/mis_brdf-64.png" alt="mis-brdf-64" width="30%"/>
+  </div>
+  <div class="gallery-item gallery-item-sm">
+    <img src="/assets/images/mis/mis_brdf-256.png" alt="mis-brdf-256" width="30%"/>
+  </div>
+</div>
 
 Multiple Importance, Lights + Mixture PDF, Balance Heuristic, 16, 64, 256 samples per pixel
 
-<img src="/assets/images/mis/mis_mixed-16.png" alt="mis-mixed-16" width="30%"/>
-<img src="/assets/images/mis/mis_mixed-64.png" alt="mis-mixed-64" width="30%"/>
-<img src="/assets/images/mis/mis_mixed-256.png" alt="mis-mixed-256" width="30%"/>
+<div class="gallery-grid no-gap">
+  <div class="gallery-item gallery-item-sm">
+    <img src="/assets/images/mis/mis_mixed-16.png" alt="mis-mixed-16" width="30%"/>
+  </div>
+  <div class="gallery-item gallery-item-sm">
+    <img src="/assets/images/mis/mis_mixed-64.png" alt="mis-mixed-64" width="30%"/>
+  </div>
+  <div class="gallery-item gallery-item-sm">
+    <img src="/assets/images/mis/mis_mixed-256.png" alt="mis-mixed-256" width="30%"/>
+  </div>
+</div>
 
 ### Notes
 
@@ -219,23 +296,3 @@ We can see that Multiple Importance Sampling allows us to utilize different samp
 [Matt Pharr, Wenzel Jakob, Greg Humphreys, _Physically Based Rendering_](https://www.pbrt.org/)
 
 [Eric Veach, _Robust Monte Carlo Methods for Light Transport Simulation_](http://graphics.stanford.edu/papers/veach_thesis/)
-
-## Issues
-
-*Updated Feb 9 2022*
-
-I reached out to [Adam Celarek](https://www.cg.tuwien.ac.at/staff/AdamCelarek), a PhD candidate at [TU Wien](https://www.tuwien.at/) after I came across his [lecture slides](https://www.cg.tuwien.ac.at/sites/default/files/course/4411/attachments/08_mis.pdf) on the topic of MIS. There is also a recording of his lecture, available here -
-
-<div class="iframe-wrapper">
-  <iframe class="responsive-iframe" src="https://www.youtube.com/embed/2S6imDIiFTM"></iframe>
-</div>
-
-<br>
-
-Adam pointed out that this light sampling strategy (which is essentially direct lighting) is not unbiased - that is, given enough samples, it will never converge on a correct solution. This can be verified by comparing against sampling the BRDF or Peter's mixture pdf - no matter how many times the light is sampled, the result will never contain any information for the regions in shadow.
-
-Additionally, Peter's mixture pdf already demonstrates multiple importance sampling, using a *one-sample model* (Veach 9.2.4). What I've implemented is a *multi-sample model* (Veach 9.2.1), but using the mixture pdf as one of the sampling functions is questionable.
-
->From what i see from the code on Ray Tracing - The Rest of Your Life, I believe it is already MIS with the balance heuristic. Compare with my slides, page 24, p_i, of the currently selected PDF cancels out, and you get f(x)/(p0(x)+p1(x)).*
-
->Veach said: we have n sampling strategies, and we take n_i samples each. He was computing the weight w for each sampling strategy separately. If you do that, you have to send one ray cast per sampling strategy. What is done more often, is to select a sampling strategy with a uniform probability, then compute a single weight and use it (my slides, page 27, that is the balance heuristic). That being said, you seem to sample two strategies on every hit, which should be correct. The problem with this is, that the number of rays going through the scene doubles on each hitpoint (if not reduced by an aggressive RR, and I can imagine, that such an aggressive RR would introduce more noise).
