@@ -5,7 +5,7 @@ date:   2022-11-17
 author: Christian Robles
 category: blog
 published: true
-image: "/assets/images/ears/ears-64spp.png"
+image: "/assets/images/ears/ears-preview.jpg"
 ---
 
 I recently submitted a proposal for a Directed Research project next Spring - it's been preliminarily approved but will take some time to finalize. I may extend this post to have some more meat on its bones in the future, but for now I'm just throwing up the proposal. Thank you Professor Neumann for offering to advise this project!

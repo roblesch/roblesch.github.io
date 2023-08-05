@@ -4,6 +4,7 @@ title:  "For Your Consideration, Bumpy Spheres"
 date:   2022-04-30
 author: Christian Robles
 category: blog
+image: "/assets/images/ray-marching/teaser.jpg"
 published: true
 ---
 

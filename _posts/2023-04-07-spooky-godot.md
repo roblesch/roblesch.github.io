@@ -4,6 +4,7 @@ title:  "A Spooky Weekend in Godot"
 date:   2023-04-07
 author: Christian Robles
 category: blog
+image: "/assets/images/walking-sim/skull-bob.mp4"
 published: true
 ---
 

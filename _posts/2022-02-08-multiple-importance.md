@@ -5,6 +5,7 @@ date:   2022-02-08
 author: Christian Robles
 category: blog
 tags: graphics
+image: "/assets/images/mis/mis-preview.jpg"
 published: true 
 ---
 

@@ -10,3 +10,5 @@ This is my personal site where I showcase projects and blog about interesting th
 
 ### About me
 I'm a recent MSc. Computer Science graduate with a passion for Graphics, Games and Mathematics based in Los Angeles. Before my graduate studies I was a Software Engineer in the enterprise cloud computing industry.
+
+[View my resume here.](/assets/christian-robles-resume.pdf)

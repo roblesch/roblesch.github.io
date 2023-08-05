@@ -4,6 +4,7 @@ title:  "Recreating Effects from Aphex Twin's \"T69 Collapse\""
 date:   2020-05-17
 author: Christian Robles
 category: blog
+image: "/assets/images/style-transfer/faces-rotate.mp4"
 published: true
 ---
 
