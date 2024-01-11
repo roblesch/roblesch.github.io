@@ -1,1 +1,1 @@
-Personal blog, sloppy commits :)
+Personal blog, sloppy commits : )
