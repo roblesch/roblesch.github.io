@@ -4,7 +4,9 @@ title:  "Rust K-D Tree Boids on Bevy with bevy-spatial"
 date:   2024-04-29
 author: Christian Robles
 category: blog
-image: "/assets/images/boids/boids-preview-wide.jpg"
+image: "/assets/images/boids/boids-preview-linkedin.jpg"
+description: "In this post I'll summarize my experience getting started with Rust and Bevy, and share technical details for the interactive Boids simulation linked above. The first section of this post is a ramble about project selection, getting started with Rust and Bevy, and Eric S. Raymond's *The Cathedral and the Bazaar*."
+
 published: true
 ---
 
@@ -27,7 +29,7 @@ published: true
   
 ## Reading & Rambling
 
-The first section of this post is a ramble about project selection, getting started with Rust and Bevy, and Eric S. Raymond's *The Cathedral and the Bazaar*. If you want the technical details about implementing boids on Bevy, skip [here](#boids).
+In this post I'll summarize my experience getting started with Rust and Bevy, and share technical details for the interactive Boids simulation linked above. The first section of this post is a ramble about project selection, getting started with Rust and Bevy, and Eric S. Raymond's *The Cathedral and the Bazaar*. If you want the technical details about implementing boids on Bevy, skip [here](#boids).
 
 ### What Doth Life
 
