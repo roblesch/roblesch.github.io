@@ -17,7 +17,7 @@ published: true
 </figure>
 If you've been seeing my spam on LinkedIn, you'll know I've been supremely busy pushing out work on my [Directed Research](/blog/2022/11/17/directed-research.html) project. At this point I'm a week or two away from wrapping it all up, so I think the best thing I could do now is start a new project (ha, ha).
 
-I've been working in Unity for awhile now on the development of [Grandma Green](/blog/2023/05/10/grandmagreen.html). There's a lot to enjoy about working in Unity - it's very easy to prototype and iterate on new ideas, and the perforce integrations have worked well enough for our team.
+I've been working in Unity for awhile now on the development of [Grandma Green](/blog/2023/05/11/grandmagreen.html). There's a lot to enjoy about working in Unity - it's very easy to prototype and iterate on new ideas, and the perforce integrations have worked well enough for our team.
 
 All this time spent in Unity has put other engines on my radar. Most of my recent work is research focused where a lot of time invested into questionably designed, purpose-built programs that demonstrate some specific technique but have little application anywhere else. Game Engine architectures are a compelling topic - most 3d engines will have to orchestrate concurrent execution of rendering, animation, input handling, game entities & behaviors, networking, etc.
 
@@ -57,7 +57,6 @@ Behold, a convenient tutorial -
 <div class="iframe-wrapper">
   <iframe allowfullscreen class="responsive-iframe" src="https://www.youtube.com/embed/VjuyfBaryu8"></iframe>
 </div>
-<br>
 
 ### Environment & Models
 

@@ -11,7 +11,6 @@ published: true
 <div class="iframe-wrapper">
   <iframe class="responsive-iframe" src="https://www.youtube.com/embed/SqayDnQ2wmw"></iframe>
 </div>
-<br>
 
 Recently I was watching the Music video for Aphex Twin's "T69 Collapse" and I was curious about some effects -
 

@@ -133,6 +133,12 @@
 .page-content {
   padding: $spacing-unit 0;
   flex: 1;
+
+  hr {
+    margin-bottom: $spacing-unit;
+    color: rgba(0.0, 0.0, 0.0, 0.0);
+    border-bottom: 1px solid $grey-color-light;
+  }
 }
 
 .page-heading {
@@ -307,6 +313,13 @@
     }
   }
 
+  hr {
+    margin-top: $spacing-unit;
+    margin-bottom: $spacing-unit;
+    color: rgba(0.0, 0.0, 0.0, 0.0);
+    border-bottom: 1px solid $grey-color-light;
+  }
+
   .iframe-wrapper {
     position: relative;
     overflow: visible;
@@ -314,6 +327,7 @@
     padding-top: 55%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: $spacing-unit;
   }
 
   .responsive-iframe {

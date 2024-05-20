@@ -10,7 +10,7 @@ published: true
 
 <figure>
   <img src="/assets/images/grandmagreen/appstore-downloads.jpg" class="no-shadow"/>
-  <figcaption>Update 8/1: Grandma Green has almost 7 thousand downloads on the App Store!</figcaption>
+  <figcaption>Update 8/1/23: Grandma Green has almost 7 thousand downloads on the App Store!</figcaption>
   <figcaption>---</figcaption>
 </figure>
 
@@ -52,7 +52,7 @@ This is the `struct` that represents the current state of a plant in a garden. A
 
 ### `GardenManager.cs`
 
-This script is a `ScriptableObject` that provides the interface for systems to interact with garden state. It maintains a `list` of all gardens, where each garden is a `Dictionary` that maps a `cell` to a `PlantState`. Its interface provides [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) functions that allow Grandma and her Golems to plant and harvest plants. It is also responsible for tracking the growth of plants over time, and emits events for plant growth, wilting, and death.
+This script is a `ScriptableObject` that provides the interface for systems to interact with garden state. It maintains a `list` of all gardens, where each garden is a `Dictionary` that maps a `cell` to a `PlantState`. Its interface provides CRUD functions that allow Grandma and her Golems to plant and harvest plants. It is also responsible for tracking the growth of plants over time, and emits events for plant growth, wilting, and death.
 
 ### `GardenSaver.cs`
 

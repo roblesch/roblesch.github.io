@@ -9,13 +9,13 @@ description: "This summer I had the opportunity to work with Autodesk’s Graphi
 published: true
 ---
 
-*Update: this work was recently [accepted to MaterialX](https://github.com/AcademySoftwareFoundation/MaterialX/pull/1064)! Thank you Ashwin for the help navigating corporate OSS policy :')*
+*Update: this work was [accepted to MaterialX](https://github.com/AcademySoftwareFoundation/MaterialX/pull/1064).*
 
 <img src="/assets/images/summer22/overview.png" alt="banner" width="100%" class="no-shadow"/>
 
 This summer I had the opportunity to work with Autodesk's Graphics Platform Team on an extension for the Academy Software Foundation's [MaterialX](https://materialx.org/). Our goal was to support translation from Autodesk's [Standard Surface](https://autodesk.github.io/standard-surface/) material model to the Khronos Group's [glTF 2.0](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html) Physically Based Rendering (PBR) [Metallic-Roughness](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#materials) model. The project was done in Open Source, and was an exciting opportunity to engage with some of the most significant contributors in the open material standards community.
 
-This post is a longer form of some slides I delivered as my internship wrap-up. You can see the original deck [here](/assets/images/summer22/roblesc_intern_pres.pdf).
+This post is a short high-level summary of the some slides I delivered as my internship wrap-up. You can see the original deck [here](/assets/images/summer22/roblesc_intern_pres.pdf).
 
 #### Links
 
@@ -23,7 +23,7 @@ This post is a longer form of some slides I delivered as my internship wrap-up. 
 
 #### Organizations
 
-- [Autodesk](https://www.autodesk.com/) - Authors of Standard Surface and my employer for the summer ♡.
+- [Autodesk](https://www.autodesk.com/) - Authors of Standard Surface and my employer for the summer.
 - [Academy Software Foundation (ASWF)](https://www.aswf.io/) - governing body for a [family of Open Source projects](https://landscape.aswf.io/).
 - [Khronos Group](https://www.khronos.org/) - Open consortium collaborating on open standards for 3D graphics.
 

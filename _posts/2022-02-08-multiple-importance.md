@@ -23,8 +23,6 @@ I reached out to [Adam Celarek](https://www.cg.tuwien.ac.at/staff/AdamCelarek) o
   <iframe class="responsive-iframe" src="https://www.youtube.com/embed/2S6imDIiFTM"></iframe>
 </div>
 
-<br>
-
 Adam pointed out that this light sampling strategy (which is essentially direct lighting) is not unbiased - that is, given enough samples, it will never converge on a correct solution. This can be verified by comparing against sampling the BRDF or Peter's mixture pdf - no matter how many times the light is sampled, the result will never contain any information for the regions in shadow.
 
 Additionally, Peter's mixture pdf already demonstrates multiple importance sampling, using a *one-sample model* (Veach 9.2.4). What I've implemented is a *multi-sample model* (Veach 9.2.1), but using the mixture pdf as one of the sampling functions is questionable.
@@ -95,8 +93,6 @@ Here is nice a video that illustrates this idea -
 <div class="iframe-wrapper">
   <iframe class="responsive-iframe" src="https://www.youtube.com/embed/I_plXHHKPCo"></iframe>
 </div>
-
-<br>
 
 ### Advantages of Monte Carlo Methods
 
