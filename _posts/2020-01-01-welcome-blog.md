@@ -7,4 +7,4 @@ category: blog
 published: true
 ---
 
-Most posts focus on computer graphics. Not much else to say for now...
+Hello, world!

@@ -15,8 +15,11 @@ published: true
     <figcaption>Boids! <a href="/blog/2024/04/22/bevy-boids-interactive.html">Try them in your browser.</a></figcaption>
 </figure>
 
+In this post I'll summarize my experience getting started with Rust and Bevy, and share technical details for the interactive Boids simulation linked above. The first section of this post is a ramble about project selection, getting started with Rust and Bevy, and Eric S. Raymond's *The Cathedral and the Bazaar*. If you want the technical details about implementing boids on Bevy, skip [here](#boids).
+
+## Table of Contents
+
 - [Reading & Rambling](#reading--rambling)
-  - [What Doth Life](#what-doth-life)
   - [Back To The Building Blocks](#back-to-the-building-blocks)
   - [The Cathedral and the Bazaar](#the-cathedral-and-the-bazaar)
   - [Bevy](#bevy)
@@ -28,10 +31,6 @@ published: true
   - [Building for the Web](#building-for-the-web)
   
 ## Reading & Rambling
-
-In this post I'll summarize my experience getting started with Rust and Bevy, and share technical details for the interactive Boids simulation linked above. The first section of this post is a ramble about project selection, getting started with Rust and Bevy, and Eric S. Raymond's *The Cathedral and the Bazaar*. If you want the technical details about implementing boids on Bevy, skip [here](#boids).
-
-### What Doth Life
 
 After wrapping the first iteration of my [Vulkan renderer](/blog/2023/08/05/palace-1.html) I had the opportunity to interview for a Graphics Programmer position. I spent a few weeks integrating [Nvidia's Variable-Rate Shading algorithm](https://github.com/NVIDIAGameWorks/nas-sample) into a test scene as a take-home project. The interview was a success, but they were unable to accommodate me remotely, and I was unable to relocate where they needed me. These things happen. Here's [the slides](https://blog.roblesch.page/assets/VRS-NAS.pdf) if you like.
 
@@ -242,4 +241,4 @@ The final piece of this project was building it for the browser by compiling to 
 
 ## The End
 
-We finally made it! What started as a quick recap for a quicker proejct ended up as a week-long ramble. I'm loving Rust and plan to work with it as my bandwidth allows. As always, I'll post any new developments here as they happen. Thanks for reading!
+What started as a quick recap for a quicker proejct ended up as a week-long ramble. I'm loving Rust and plan to work with it as my bandwidth allows. As always, I'll post any new developments here as they happen. Thanks for reading!

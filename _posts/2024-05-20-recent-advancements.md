@@ -8,21 +8,17 @@ published: true
 image: "/assets/images/ears/ears-preview.jpg"
 ---
 
-This post is a re-bundling & re-write of my Spring 2023 directed research project during my masters at USC, detailing the development of a unidirectional forward path tracer demonstrating the [Efficiency-Aware Russian Roulette & Splitting (EARS)](https://dl.acm.org/doi/abs/10.1145/3528223.3530168) algorithm. This version condenses the series into the key technical components and cuts most of the context/development journey. If you find any errors, please leave a note in the comments at the bottom of the page.
-
-If you'd like to read the original series you can find the first post here: [Albedo to EARS, Pt. 1.](/blog/2023/01/04/ears-1.html)
+This post is a re-write of the directed research completed during my masters at USC in spring 2023, reviewing techniques in Russian roulette & splitting and detailing the development of a unidirectional forward path tracer demonstrating recent advancements. This version condenses the series into the key technical elements - if you'd like to read the original series you can find the first post here: [Albedo to EARS, Pt. 1.](/blog/2023/01/04/ears-1.html) If you find any errors, please leave a note in the comments at the bottom of the page.
 
 Source code is available on GitHub here: [roblesch/roulette](https://github.com/roblesch/roulette)
 
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [References](#references)
 - [Core Renderer Architecture](#core-renderer-architecture)
   - [Reference Renderers](#reference-renderers)
-  - [Other Dependencies](#other-dependencies)
   - [Architecture](#architecture)
-  - [Base Implementation & Debugging](#base-implementation--debugging)
+  - [Core Implementation & Debugging](#base-implementation--debugging)
 - [Literature Review](#literature-review)
   - [Particle Transport and Image Synthesis, Arvo & Kirk 1990](#particle-transport-and-image-synthesis-arvo--kirk-1990)
   - [Adjoint-Driven Russian Roulette and Splitting in Light Transport Simulation, Vorba & Křivánek 2016](#adjoint-driven-russian-roulette-and-splitting-in-light-transport-simulation-vorba--křivánek-2016)
@@ -33,6 +29,7 @@ Source code is available on GitHub here: [roblesch/roulette](https://github.com/
   - [Image Statistics](#image-statistics)
   - [Integration & Debugging](#integration--debugging)
 - [Results](#results)
+- [References & Resources](#references--resources)
 
 ---
 
@@ -42,23 +39,9 @@ In fall 2022 I submitted a [project proposal](/assets/roblesch_project_proposal.
 
 Path tracing is a computer graphics Monte Carlo method for rendering three-dimensional scenes by simulating the paths of light particles and their interaction with media as they travel from a light source to an observer. Path tracing is an offline rendering technique utilized for its ability to produce high-fidelity and physically-plausible images. Russian roulette and splitting augment path tracing by eliminating paths that are unlikely to make a significant contribution to the final image (roulette/culling), and branching paths in regions of high importance (splitting). Weights proportional to the probability of culling or splitting are applied to the resulting path value to prevent bias.
 
-Efficiency aware Russian-Roulette and Splitting, or EARS, is a technique presented in a publication by [Alexander Rath](https://graphics.cg.uni-saarland.de/people/rath.html) and others at the [University of Saarland](https://graphics.cg.uni-saarland.de/) submitted to SIGGRAPH in 2022. It enhances [previous techniques in Russian roulette and splitting by Vorba and Křivánek](https://dl.acm.org/doi/10.1145/2897824.2925912) by iteratively selecting Russian roulette and splitting parameters such that an efficiency estimate is optimized. By optimizing with respect to efficiency, EARS is able to spend more of the computation budget in regions with high complexity where the current estimate has a high relative variance, and less in regions where the current estimate has approached convergence. 
+Efficiency aware Russian-Roulette and Splitting, or EARS, is a technique presented in a publication by [Alexander Rath](https://graphics.cg.uni-saarland.de/people/rath.html) and others at the [University of Saarland](https://graphics.cg.uni-saarland.de/) submitted to SIGGRAPH in 2022. It enhances [previous techniques in Russian roulette and splitting by Vorba and Křivánek](https://dl.acm.org/doi/10.1145/2897824.2925912) by iteratively selecting Russian roulette and splitting parameters such that an efficiency estimate is optimized. By optimizing with respect to efficiency, EARS is able to spend more of the computation budget in regions with high complexity where the current estimate has a high relative variance, and less in regions where the current estimate approaches convergence. 
 
-<div class="iframe-wrapper">
-  <iframe allowfullscreen class="responsive-iframe" src="https://www.youtube.com/embed/Fby_DTcbU0c"></iframe>
-</div>
-
-## References
-
-Matt Pharr, Wenzel Jakob, and Greg Humphreys. 2018. Physically Based Rendering, 3rd edition. [https://pbr-book.org/3ed-2018/contents](https://pbr-book.org/3ed-2018/contents)
-
-Eric Veach. 1998. Robust monte carlo methods for light transport simulation. [https://dl.acm.org/doi/10.5555/927297](https://dl.acm.org/doi/10.5555/927297)
-
-James Arvo and David Kirk. 1990. Particle transport and image synthesis. [https://doi.org/10.1145/97880.97886](https://doi.org/10.1145/97880.97886)
-
-Jiří Vorba and Jaroslav Křivánek. 2016. Adjoint-driven Russian roulette and splitting in light transport simulation. [https://doi.org/10.1145/2897824.2925912](https://doi.org/10.1145/2897824.2925912)
-
-Alexander Rath, Pascal Grittmann, Sebastian Herholz, Philippe Weier, and Philipp Slusallek. 2022. EARS: efficiency-aware russian roulette and splitting. [https://doi.org/10.1145/3528223.3530168](https://doi.org/10.1145/3528223.3530168)
+---
 
 ## Core Renderer Architecture
 
@@ -84,7 +67,7 @@ Pbrt-v3 is the accompanying source code for the popular [*"Physically Based Rend
 
 The top choice for this project, Benedikt Bitterli's Tungsten checks all the boxes. Its scenes are encoded in an easy to parse JSON format, and its implementations are straightforward and easy to understand. The only hiccup here is that the code is a bit out of date, and needs to be debugged in VS2013. There is a set of test scenes aviailable on Benedikt's [personal site](https://benedikt-bitterli.me/resources/). Tungsten is the primary reference for this project, and the core path tracing algorithm is adapted directly.
 
-### Other Dependencies
+#### Other Dependencies
 
 - [nlohmann/json](https://github.com/nlohmann/json)
 - [stb/stb_image](https://github.com/nothings/stb/blob/master/stb_image.h)
@@ -123,7 +106,7 @@ The `Renderer` class is the parent that encapsulates all renderer state, configu
 
 There's a lot more to the renderer than this - especially once EARS is integrated - but these are the main pieces. If you want all the gory details, [check out the source](https://github.com/roblesch/roulette/tree/main/renderer/src).
 
-### Base Implementation & Debugging
+### Core Implementation & Debugging
 
 With the architecture in mind and skeletal classes bootstrapped, the first pass of implementation was a `DebugIntegrator`. As the name suggests, it's a trivial implementation of the `Integrator` that maps pixel coordinates to RGB values.
 
@@ -184,6 +167,8 @@ B. Light was emitting from both sides of the plane. <br>
 C. Paths traveling from diffuse surfaces directly to the light oversampled the light.
 
 Great! With the base path tracing algorithm working correctly, I could turn my attention to a deeper review of EARS and related techniques.
+
+---
 
 ## Literature Review
 
@@ -329,6 +314,8 @@ function LrEstimate(x_k, I_px)
 ```
 
 The final image is computed iteratively by optimizing total cost and variance, where cost and variance are evaluated along each path by `LrEstimate`. EARS extends ADRRS by iteratively denoising the image estimate and using the denoised image as an estimate on the expected result. This allows EARS to further optimize selection of RRS parameters by referring to both the estimated path contribution from the octree cache with the previous iteration's per-pixel cost and variance.
+
+---
 
 ## Implementing ADRRS and EARS
 
@@ -595,6 +582,8 @@ if (!m_currentRRSMethod.useAbsoluteThroughput)
 
 When creating a new primary ray, if the current iteration uses a learning-based method (ADRRS, EARS) the initial weight (throughput) is initialized as the inverse of the current image estimate (denoised merge image over all iterations) plus some normalizing lower-bound. This was the issue all along.
 
+---
+
 ## Results
 
 <figure>
@@ -635,4 +624,31 @@ After 16 iterations, ADRRS and EARS both show improvements over NoRR and Classic
     <figcaption>EARS, 1024x1024, 4spp/16 iterations, 64 cumulative spp, denoised</figcaption>
 </figure>
 
-If you've made it this far, thank you for taking the time. This was my first experience working with a learning-based technique in light transport estimation, and wrapping my head around the various added pieces was quite an undertaking. EARS is a compelling example of integrating a learning-based framework like Intel's OIDN to improve the foundational operations in path tracing such as Russian roulette & splitting. Building from path tracing foundations to this contemporary technique demonstrates how far RRS techniques have evolved in a few short decades, and is a sign of things to come in the integration of classical algorithms and emergent deep learning tooling.
+EARS is a compelling example of integrating a learning-based framework with classic statistical techniques in path tracing. Leveraging deep learning denoising to generate auxiallary inputs to classical RRS demonstrates the power of using trained models to tune values traditionally hand tuned or selected by some hueristic, such as material albedo.
+
+### References & Resources
+
+#### Publications
+
+Matt Pharr, Wenzel Jakob, and Greg Humphreys. 2018. Physically Based Rendering, 3rd edition. [https://pbr-book.org/3ed-2018/contents](https://pbr-book.org/3ed-2018/contents)
+
+Eric Veach. 1998. Robust monte carlo methods for light transport simulation. [https://dl.acm.org/doi/10.5555/927297](https://dl.acm.org/doi/10.5555/927297)
+
+James Arvo and David Kirk. 1990. Particle transport and image synthesis. [https://doi.org/10.1145/97880.97886](https://doi.org/10.1145/97880.97886)
+
+Jiří Vorba and Jaroslav Křivánek. 2016. Adjoint-driven Russian roulette and splitting in light transport simulation. [https://doi.org/10.1145/2897824.2925912](https://doi.org/10.1145/2897824.2925912)
+
+Alexander Rath, Pascal Grittmann, Sebastian Herholz, Philippe Weier, and Philipp Slusallek. 2022. EARS: efficiency-aware russian roulette and splitting. [https://doi.org/10.1145/3528223.3530168](https://doi.org/10.1145/3528223.3530168)
+
+#### Repositories
+
+EARS: Efficiency-Aware Russian Roulette and Splitting. [https://github.com/iRath96/ears](https://github.com/iRath96/ears)
+
+Mitsuba Renderer 3. [https://github.com/mitsuba-renderer/mitsuba3](https://github.com/mitsuba-renderer/mitsuba3)
+
+pbrt, Version 3. [https://github.com/mmp/pbrt-v3](https://github.com/mmp/pbrt-v3)
+
+The Tungsten Renderer. [https://github.com/tunabrain/tungsten](https://github.com/tunabrain/tungsten)
+
+Intel Open Image Denoise. [https://github.com/RenderKit/oidn](https://github.com/RenderKit/oidn)
+
