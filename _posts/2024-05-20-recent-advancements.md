@@ -22,7 +22,7 @@ Source code is available on GitHub here: [roblesch/roulette](https://github.com/
 - [Literature Review](#literature-review)
   - [Particle Transport and Image Synthesis, Arvo & Kirk 1990](#particle-transport-and-image-synthesis-arvo--kirk-1990)
   - [Adjoint-Driven Russian Roulette and Splitting in Light Transport Simulation, Vorba & Křivánek 2016](#adjoint-driven-russian-roulette-and-splitting-in-light-transport-simulation-vorba--křivánek-2016)
-  - [EARS: Efficiency-Aware Russian Roulette and Splitting, Rath et. al. 2022](#ears-efficiency-aware-russian-roulette-and-splitting-rath-et-al-2022)
+  - [EARS: Efficiency-Aware Russian Roulette and Splitting, Rath et al. 2022](#ears-efficiency-aware-russian-roulette-and-splitting-rath-et-al-2022)
 - [Implementing ADRRS and EARS](#implementing-adrrs-and-ears)
   - [Open Image Denoise](#open-image-denoise)
   - [Spatial Cache](#spatial-cache)
@@ -214,7 +214,7 @@ $$
 q(y,\omega_i) = \frac{E[c(y, \omega_i)]}{I} = \frac{v_i(y,\omega_i)\Psi_o^r(y,\omega_i)}{I}
 $$
 
-Where total expected contribution $$E[c(y, \omega_i)]$$ is the product of the path weight $$v_i(y,\omega_i)$$ at point $$y$$ from direction $$\omega_i$$ and the reflected adjoint quantity $$\Psi_o^r$$. The adjoint quantity estimate $$\tilde{\Psi_o^r}$$ is cached by pre-computation of a spatial distribution which approximates *irradiance* and *diffuse visual importance* building on author's previous work, *On-line Learning of Parametric Mixture Models for Light Transport Simulation*, Vorba et. al., 2014. The measurement estimate $$\tilde{I}$$ is approximated from the adjoint cache using 4 samples per pixel where the cache is queried immediately for diffuse and glossy surfaces (path depth of 1) and continuing on purely specular surfaces.
+Where total expected contribution $$E[c(y, \omega_i)]$$ is the product of the path weight $$v_i(y,\omega_i)$$ at point $$y$$ from direction $$\omega_i$$ and the reflected adjoint quantity $$\Psi_o^r$$. The adjoint quantity estimate $$\tilde{\Psi_o^r}$$ is cached by pre-computation of a spatial distribution which approximates *irradiance* and *diffuse visual importance* building on author's previous work, *On-line Learning of Parametric Mixture Models for Light Transport Simulation*, Vorba et al., 2014. The measurement estimate $$\tilde{I}$$ is approximated from the adjoint cache using 4 samples per pixel where the cache is queried immediately for diffuse and glossy surfaces (path depth of 1) and continuing on purely specular surfaces.
 
 The *weight window* applies the splitting factor $$q$$ to calculate an interval of acceptable particle weights, $$\langle\delta^-,\delta^+\rangle$$ where paths with a weight above the interval are split, and paths with a weight below the interval are terminated.
 
@@ -242,9 +242,9 @@ end procedure
 
 ADRRS is an important step towards EARS - it leverages the same octree cache of scene radiance estimates when selecting RRS parameters. So, correctly demonstrating ADRRS can validate the impelementation of the cache.
 
-### [EARS: Efficiency-Aware Russian Roulette and Splitting, Rath et. al. 2022](https://dl.acm.org/doi/10.1145/3528223.3530168)
+### [EARS: Efficiency-Aware Russian Roulette and Splitting, Rath et al. 2022](https://dl.acm.org/doi/10.1145/3528223.3530168)
 
-Rath et. al. extend the work of ADRRS with *Efficiency-Aware RRS*, where the splitting coefficient is evaluated as to optimize *efficiency* by minimizing the product of variance and cost. The integer-valued splitting coefficient is identified by performing a fixed-point iteration of the root of the products of local variance to expected variance and local cost to expected cost, which is shown to iteratively optimize $$n_i$$ converging to the optimal value:
+Rath et al. extend the work of ADRRS with *Efficiency-Aware RRS*, where the splitting coefficient is evaluated as to optimize *efficiency* by minimizing the product of variance and cost. The integer-valued splitting coefficient is identified by performing a fixed-point iteration of the root of the products of local variance to expected variance and local cost to expected cost, which is shown to iteratively optimize $$n_i$$ converging to the optimal value:
 
 $$n_i(x) = \gamma_S(n_{i-1}(x)) = \sqrt{\frac{V_y(x)}{\mathbb{V}[\langle I;n_{i-1}\rangle]}\frac{\mathbb{E}[c(\langle I;n_{i-1}\rangle)]}{\mathbb{E}[c(\langle H(x)\rangle)\mid x]}}$$
 
