@@ -2,14 +2,14 @@
 # bundle update --bundler
 
 source "https://rubygems.org"
-gem "github-pages", "~> 219", group: :jekyll_plugins
-gem "minima", "~> 2.5"
+gem "github-pages", group: :jekyll_plugins
+gem "minima"
 
 group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.15"
+  gem "jekyll-feed"
   gem "jekyll-seo-tag"
   gem "jekyll-redirect-from"
 end
 
-gem "webrick", "~> 1.7"
+gem "webrick"
 gem "faraday-retry"
